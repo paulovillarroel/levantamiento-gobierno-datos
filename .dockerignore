@@ -1,0 +1,15 @@
+# Fuera del contexto de build (más liviano y sin datos ni artefactos).
+node_modules
+dist
+.astro
+datos
+.git
+.github
+.claude
+.vscode
+*.log
+.DS_Store
+resultados
+autoevaluacion-madurez-*.json
+autoevaluacion-madurez-*.csv
+autoevaluacion-consolidado-*.csv

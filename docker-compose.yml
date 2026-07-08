@@ -1,0 +1,30 @@
+# Levanta el formulario + el servidor de consolidación (SQLite) juntos:
+#
+#   docker compose up --build
+#
+# Formulario:            http://localhost:8080  (cambiable con APP_PORT=9000 docker compose up)
+# Servidor de sesiones:  http://localhost:8787  (la app lo detecta sola → "● BD conectada")
+#
+# Las sesiones se guardan en el volumen 'datos' (gestionado por Docker; persiste
+# entre reinicios). Para empezar de cero:  docker compose down -v
+services:
+  app:
+    build: .
+    # Puerto del host configurable por si el 8080 está ocupado (APP_PORT).
+    ports:
+      - "${APP_PORT:-8080}:8080"
+    restart: unless-stopped
+
+  servidor:
+    build:
+      context: .
+      dockerfile: servidor/Dockerfile
+    # El puerto del host debe quedar fijo en 8787: la app busca el servidor ahí.
+    ports:
+      - "8787:8787"
+    volumes:
+      - datos:/app/datos
+    restart: unless-stopped
+
+volumes:
+  datos:

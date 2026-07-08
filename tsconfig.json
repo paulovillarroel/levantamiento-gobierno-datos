@@ -1,0 +1,15 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "verbatimModuleSyntax": true,
+    "allowJs": true,
+    // Imports con extensión .ts explícita: permite que Node (type stripping) ejecute
+    // los módulos de src/ directamente, p. ej. scripts/ y .claude/skills/.
+    "allowImportingTsExtensions": true,
+    "noEmit": true
+  },
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist", "node_modules"]
+}

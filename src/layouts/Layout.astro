@@ -1,0 +1,28 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Autoevaluación de madurez organizacional frente a la Ley 21.719 de protección de datos personales y la gobernanza de datos (MGDE)." />
+    <title>{title}</title>
+    {/* Aplica el tema guardado antes de pintar para evitar parpadeo. */}
+    <script is:inline>
+      try {
+        const t = localStorage.getItem('autoeval-madurez-v1-tema');
+        if (t) document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

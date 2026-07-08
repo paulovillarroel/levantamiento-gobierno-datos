@@ -1,0 +1,9 @@
+---
+import Layout from '../layouts/Layout.astro';
+import App from '../components/App';
+---
+
+<Layout title="Autoevaluación de madurez — Ley 21.719 y Gobernanza de datos">
+  {/* Toda la interacción vive en el navegador: se hidrata solo en el cliente. */}
+  <App client:only="react" />
+</Layout>

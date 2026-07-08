@@ -1,0 +1,28 @@
+# Dependencias y build
+node_modules/
+dist/
+.astro/
+
+# Logs / caché
+*.log
+npm-debug.log*
+.DS_Store
+.vscode/
+
+# Entorno y secretos
+.env
+.env.*
+!.env.example
+
+# Respuestas y resultados exportados (son DATOS: nunca al repo — van a OneDrive)
+*.respuestas.json
+autoevaluacion-madurez-*.json
+autoevaluacion-madurez-*.csv
+autoevaluacion-consolidado-*.csv
+resultados/
+
+# Base de datos local del servidor de sesiones (son DATOS: nunca al repo)
+datos/
+
+# Config local de Claude Code (el skill sí se publica en .claude/skills/)
+.claude/settings.local.json
