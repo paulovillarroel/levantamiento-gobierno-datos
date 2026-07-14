@@ -340,6 +340,43 @@ También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte
 
 ---
 
+# Módulo C — Sector salud (opcional)
+
+*3 dimensiones · 8 preguntas. **Opcional**: se activa marcando "🏥 Esta institución pertenece al sector salud" en la portada; no afecta a las instituciones que no lo marcan. Recoge, como espacio propio, el **régimen legal reforzado del dato de salud** —que antes de generalizar el instrumento estaba integrado en los Módulos A/B—: arts. 16 y 16 bis de la Ley 21.719, la Ley 20.584 y el Reglamento sobre Fichas Clínicas (Decreto 41/2012), la EIPD (art. 15 ter) y la interoperabilidad clínica. Contenido verificado contra el texto legal (2026-07-14).*
+
+### C1. Datos de salud y régimen reforzado **(crítica ×1.5)**
+1. El tratamiento de datos de salud y del **perfil biológico humano** se limita a los fines de las **leyes especiales en materia sanitaria** (art. 16 bis) y se ampara en una base de licitud válida.
+2. **No** tratamos datos de salud ni muestras biológicas recolectados en el ámbito **laboral, educativo, deportivo, de seguros o de seguridad social**, salvo autorización legal expresa (art. 16 bis).
+3. Aplicamos **medidas reforzadas** (cifrado, acceso restringido y registro de accesos) a los datos de salud, biométricos y del perfil biológico, con resguardos especiales para niños, niñas y adolescentes.
+> **Acciones para subir de nivel:**
+> - **→ 2 Básico:** Identificar dónde se tratan datos de salud, del perfil biológico y biométricos, y verificar que su uso responda a un fin sanitario y a una base de licitud.
+> - **→ 3 Definido:** Documentar, para cada tratamiento de datos de salud, el fin sanitario que lo habilita (art. 16 bis) y sus medidas reforzadas de seguridad; formalizar el deber de reserva y secreto del personal clínico.
+> - **→ 4 Gestionado:** Controlar periódicamente que no se traten datos de salud para fines ajenos a las leyes sanitarias ni datos recolectados en ámbitos laboral/educativo/de seguros sin autorización legal, midiendo accesos indebidos.
+> - **→ 5 Optimizado:** Minimizar de forma continua (anonimización/seudonimización por defecto en la analítica clínica) y anticipar riesgos como la reidentificación por cruce de fuentes de salud.
+>
+> ⚠️ *Nota para validación jurídica:* el **art. 16 bis** restringe el tratamiento de datos de salud y del perfil biológico a los fines de las leyes sanitarias y **prohíbe** usar datos/muestras recolectados en el ámbito laboral, educativo, deportivo, de seguros o de seguridad social salvo autorización legal expresa (verificado contra el texto legal).
+
+### C2. Ficha clínica y derechos del paciente (Ley 20.584)
+1. La **ficha clínica** se conserva conforme al **Reglamento sobre Fichas Clínicas (Decreto 41/2012)**: plazo mínimo de **15 años** desde la última atención, con custodia y trazabilidad.
+2. El acceso y la entrega de copia de la ficha clínica se gestionan según la **Ley 20.584**, coordinados con el procedimiento ARCOP de la Ley 21.719 en un **canal único** (sin duplicar).
+> **Acciones para subir de nivel:**
+> - **→ 2 Básico:** Identificar dónde están las fichas clínicas (en papel y electrónicas) y quién accede a ellas; cerrar los accesos evidentemente excesivos.
+> - **→ 3 Definido:** Aplicar el Reglamento sobre Fichas Clínicas (Decreto 41/2012): conservación mínima de 15 años desde la última atención, con custodia y trazabilidad; formalizar el procedimiento de acceso y entrega de copia según la Ley 20.584.
+> - **→ 4 Gestionado:** Medir el cumplimiento de las solicitudes de copia o rectificación de la ficha clínica (plazos y trazabilidad) y coordinarlas con el flujo ARCOP de la Ley 21.719 para no duplicar canales.
+> - **→ 5 Optimizado:** Automatizar donde aporte (solicitud y entrega de copia, verificación de identidad) y usar las solicitudes recibidas como señal para mejorar la calidad del registro clínico.
+
+### C3. Interoperabilidad clínica y datos de salud a gran escala
+1. Usamos y gobernamos **estándares semánticos y de terminología clínica** (HL7 FHIR, SNOMED CT, CIE-10/CIE-11) para la consistencia del dato clínico entre los nodos de la **red asistencial**.
+2. Los tratamientos **masivos o a gran escala** de datos de salud (registros nacionales, listas de espera, tamizajes, modelos predictivos) cuentan con una **EIPD previa** (art. 15 ter).
+3. El **uso secundario** de datos de salud (investigación, estadística y salud pública) se realiza con **anonimización o seudonimización** y control del riesgo de reidentificación.
+> **Acciones para subir de nivel:**
+> - **→ 2 Básico:** Identificar las terminologías clínicas que se usan de hecho (CIE, SNOMED CT, códigos locales) y los tratamientos de datos de salud a gran escala (registros, listas de espera).
+> - **→ 3 Definido:** Adoptar estándares semánticos y de terminología clínica (HL7 FHIR, SNOMED CT, CIE-10/CIE-11) con un responsable de su gobierno, y exigir EIPD previa a los tratamientos masivos de datos de salud (art. 15 ter).
+> - **→ 4 Gestionado:** Medir la cobertura de codificación clínica estandarizada y la conformidad con los estándares; controlar que el uso secundario (investigación, estadística) pase por anonimización/seudonimización.
+> - **→ 5 Optimizado:** Avanzar hacia interoperabilidad semántica por diseño en la red asistencial (perfiles FHIR nacionales, mapeos terminológicos mantenidos) e incorporar técnicas avanzadas (privacidad diferencial, datos sintéticos) en el uso secundario.
+
+---
+
 ## Fuentes
 
 - **Ley 21.719** — regula la protección y el tratamiento de datos personales y crea la Agencia de Protección de Datos Personales. Texto oficial (BCN): https://www.bcn.cl/leychile/navegar?idNorma=1209272

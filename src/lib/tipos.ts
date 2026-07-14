@@ -34,6 +34,8 @@ export interface Dimension {
 export interface Modulo {
   id: string;
   titulo: string;
+  /** Título corto para KPIs y radares (opcional; si falta se usa `titulo`). */
+  tituloCorto?: string;
   descripcion: string;
   dimensiones: Dimension[];
 }
@@ -70,6 +72,8 @@ export interface Meta {
   evaluador?: string;
   /** Quiénes participaron en la reunión de levantamiento. */
   participantes?: string;
+  /** La institución pertenece al sector salud: activa el Módulo C (preguntas sectoriales). */
+  sectorSalud?: boolean;
 }
 
 /** Una sesión de levantamiento: las respuestas de una reunión con un área/departamento. */

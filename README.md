@@ -22,7 +22,8 @@ El levantamiento se organiza **por sesiones**: cada reunión con un área/depart
 
 - **Módulo A — Ley 21.719** (14 dimensiones): gobernanza/DPO, base de licitud, RAT, datos sensibles, consentimiento, derechos ARCOP, EIPD, seguridad, brechas, encargados, transferencias, anonimización, cultura y cesiones entre organismos.
 - **Módulo B — Gobernanza de datos / MGDE** (12 dimensiones): instancias de gobernanza, roles, estrategia/activos estratégicos, políticas/datos abiertos, calidad, metadatos, arquitectura/interoperabilidad semántica, seguridad, ciclo de vida/gestión documental, cultura/uso de datos, adopción efectiva y gobierno de modelos analíticos e IA (incl. IA generativa).
-- **69 preguntas** en total (45–60 min en reunión de levantamiento por área; 15–20 min si se responde individualmente). Escala 1–5 con equivalencia a los 4 niveles del MGDE + opción "No sé / N/A".
+- **Módulo C — Sector salud** (opcional, 3 dimensiones): régimen reforzado del dato de salud, ficha clínica e interoperabilidad clínica. Se activa solo si la institución marca que pertenece al sector salud.
+- **69 preguntas** base (+ 8 opcionales del Módulo C salud = **77** si se activa). 45–60 min en reunión de levantamiento por área; 15–20 min si se responde individualmente. Escala 1–5 con equivalencia a los 4 niveles del MGDE + opción "No sé / N/A".
 
 El banco de preguntas está documentado en [`docs/banco-preguntas.md`](docs/banco-preguntas.md) y es el espejo legible del código en `src/data/banco.ts`.
 
@@ -30,7 +31,7 @@ El banco de preguntas está documentado en [`docs/banco-preguntas.md`](docs/banc
 
 ## Grupos de preguntas del formulario
 
-Las **69 preguntas** se organizan en **26 dimensiones** (grupos temáticos), repartidas en dos módulos. Cada afirmación se responde en la **escala de madurez 1–5** (o "No sé / N/A"). Las dimensiones marcadas **crítica** pesan ×1.5 en el puntaje del módulo (deberes legales basales o criticidad de gobernanza) y son las que deberían alcanzar al menos el nivel 3 «Definido» antes del 1-dic-2026. El detalle de cada pregunta —con sus notas jurídicas (⚠️) y las acciones por nivel— está en [`docs/banco-preguntas.md`](docs/banco-preguntas.md); la versión imprimible de solo preguntas, en [`docs/cuestionario.md`](docs/cuestionario.md).
+Las **69 preguntas** base se organizan en **26 dimensiones** (grupos temáticos), en dos módulos; un **Módulo C opcional** de 8 preguntas se suma para instituciones de salud (**77** en total si se activa). Cada afirmación se responde en la **escala de madurez 1–5** (o "No sé / N/A"). Las dimensiones marcadas **crítica** pesan ×1.5 en el puntaje del módulo (deberes legales basales o criticidad de gobernanza) y son las que deberían alcanzar al menos el nivel 3 «Definido» antes del 1-dic-2026. El detalle de cada pregunta —con sus notas jurídicas (⚠️) y las acciones por nivel— está en [`docs/banco-preguntas.md`](docs/banco-preguntas.md); la versión imprimible de solo preguntas, en [`docs/cuestionario.md`](docs/cuestionario.md).
 
 ### Módulo A — Ley 21.719 · 14 dimensiones · 37 preguntas (7 críticas)
 
@@ -69,6 +70,16 @@ Las **69 preguntas** se organizan en **26 dimensiones** (grupos temáticos), rep
 | B12 | Gobierno de modelos analíticos e IA *(incl. IA generativa)* | 4 | |
 
 > La correspondencia con las **12 dimensiones oficiales del MGDE** y el criterio de criticidad están en [`docs/banco-preguntas.md`](docs/banco-preguntas.md).
+
+### Módulo C — Sector salud · opcional · 3 dimensiones · 8 preguntas
+
+La salud es un **espacio especial de legislación**: al régimen general de la Ley 21.719 se suman deberes propios —el tratamiento reforzado del dato de salud y del perfil biológico (**art. 16 bis**), la **ficha clínica** (Ley 20.584 y Reglamento sobre Fichas Clínicas, Decreto 41/2012) y la **interoperabilidad clínica**—. Por eso, quien marca **"🏥 Esta institución pertenece al sector salud"** en la portada activa este módulo sectorial adicional; el resto de las instituciones no lo ve ni lo puntúa. Al activarlo, el reporte, el consolidado y la base de datos lo incorporan automáticamente.
+
+| Dim | Grupo de preguntas | Preg. | |
+|---|---|:-:|---|
+| C1 | Datos de salud y régimen reforzado (art. 16 bis) | 3 | **crítica** |
+| C2 | Ficha clínica y derechos del paciente (Ley 20.584) | 2 | |
+| C3 | Interoperabilidad clínica y datos de salud a gran escala | 3 | |
 
 ---
 

@@ -1,6 +1,6 @@
-import type { Meta, Respuestas } from '../lib/tipos';
+import type { Banco, Meta, Respuestas } from '../lib/tipos';
 import type { ItemPlan } from '../lib/scoring';
-import { BANCO, ESCALA, FUENTES, NIVEL_META, TOTAL_PREGUNTAS } from '../data/banco';
+import { ESCALA, FUENTES, NIVEL_META, contarPreguntasBanco } from '../data/banco';
 import {
   promedioDim,
   promedioModulo,
@@ -17,6 +17,7 @@ import Radar from './Radar';
 import HojaRuta from './HojaRuta';
 
 interface ResultadosProps {
+  banco: Banco;
   respuestas: Respuestas;
   meta: Meta;
   onEditar: () => void;
@@ -65,18 +66,15 @@ function KpiModulo({ titulo, m }: { titulo: string; m: number | null }) {
   );
 }
 
-export default function Resultados({ respuestas, meta, onEditar, onPrint, onCSV, onJSON }: ResultadosProps) {
-  const modA = BANCO.modulos[0]!;
-  const modB = BANCO.modulos[1]!;
-  const mA = promedioModulo(modA, respuestas);
-  const mB = promedioModulo(modB, respuestas);
-  const global = promedioGlobal(BANCO, respuestas);
+export default function Resultados({ banco, respuestas, meta, onEditar, onPrint, onCSV, onJSON }: ResultadosProps) {
+  const global = promedioGlobal(banco, respuestas);
   const dias = Math.ceil((FECHA_LIMITE.getTime() - Date.now()) / 86400000);
-  const respondidas = contarRespondidas(BANCO, respuestas);
-  const plan = planDeAccion(BANCO, respuestas);
+  const total = contarPreguntasBanco(banco);
+  const respondidas = contarRespondidas(banco, respuestas);
+  const plan = planDeAccion(banco, respuestas);
   const prioritarias = plan.filter((x) => x.esBrecha);
   const enNivel = plan.filter((x) => !x.esBrecha);
-  const pend = pendientes(BANCO, respuestas);
+  const pend = pendientes(banco, respuestas);
 
   const metaline: string[] = [];
   if (meta.institucion) metaline.push(meta.institucion);
@@ -102,9 +100,9 @@ export default function Resultados({ respuestas, meta, onEditar, onPrint, onCSV,
         <div className="card" style={{ marginTop: '16px' }}>
           <h1>Resultados de la autoevaluación</h1>
           <p className="muted" style={{ marginTop: '-2px' }}>{metaline.join(' · ')}</p>
-          {respondidas < TOTAL_PREGUNTAS && (
+          {respondidas < total && (
             <div className="note" style={{ marginTop: '8px' }}>
-              ⚠️ Autoevaluación incompleta: {respondidas} de {TOTAL_PREGUNTAS} preguntas respondidas. Los promedios consideran solo lo respondido.
+              ⚠️ Autoevaluación incompleta: {respondidas} de {total} preguntas respondidas. Los promedios consideran solo lo respondido.
             </div>
           )}
         </div>
@@ -196,8 +194,9 @@ export default function Resultados({ respuestas, meta, onEditar, onPrint, onCSV,
               <div className="big" style={{ color: 'var(--brand)' }}>{dias > 0 ? dias : 0}</div>
               <div className="sub">{dias > 0 ? 'días para el 1-dic-2026' : 'La ley ya está vigente'}</div>
             </div>
-            <KpiModulo titulo="Módulo A · Ley 21.719" m={mA} />
-            <KpiModulo titulo="Módulo B · Gobernanza (MGDE)" m={mB} />
+            {banco.modulos.map((mod) => (
+              <KpiModulo key={mod.id} titulo={mod.tituloCorto ?? mod.titulo} m={promedioModulo(mod, respuestas)} />
+            ))}
           </div>
           <div style={{ textAlign: 'center', marginTop: '14px' }}>
             <span className="muted small">Madurez global (ambos módulos): </span>
@@ -211,14 +210,12 @@ export default function Resultados({ respuestas, meta, onEditar, onPrint, onCSV,
         <div className="card">
           <h2>Perfil de madurez por dimensión</h2>
           <div className="radar-wrap">
-            <div>
-              <h4 style={{ textAlign: 'center', color: 'var(--brand)' }}>Módulo A · Ley 21.719</h4>
-              <Radar items={modA.dimensiones.map((d) => ({ label: d.id, value: promedioDim(d, respuestas) }))} meta={NIVEL_META} />
-            </div>
-            <div>
-              <h4 style={{ textAlign: 'center', color: 'var(--brand)' }}>Módulo B · Gobernanza</h4>
-              <Radar items={modB.dimensiones.map((d) => ({ label: d.id, value: promedioDim(d, respuestas) }))} meta={NIVEL_META} />
-            </div>
+            {banco.modulos.map((mod) => (
+              <div key={mod.id}>
+                <h4 style={{ textAlign: 'center', color: 'var(--brand)' }}>{mod.tituloCorto ?? mod.titulo}</h4>
+                <Radar items={mod.dimensiones.map((d) => ({ label: d.id, value: promedioDim(d, respuestas) }))} meta={NIVEL_META} />
+              </div>
+            ))}
           </div>
           <p className="muted small" style={{ textAlign: 'center' }}>
             Escala 0–5. Cada eje es una dimensión (ver detalle abajo). Sin datos = 0.
@@ -227,7 +224,7 @@ export default function Resultados({ respuestas, meta, onEditar, onPrint, onCSV,
         </div>
 
         {/* Barras por módulo */}
-        {BANCO.modulos.map((mod) => {
+        {banco.modulos.map((mod) => {
           const pm = promedioModulo(mod, respuestas);
           return (
             <div className="card" key={mod.id}>

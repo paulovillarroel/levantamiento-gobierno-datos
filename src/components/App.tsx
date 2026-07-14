@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import type { Meta, Sesion, Valor } from '../lib/tipos';
-import { BANCO, TOTAL_PREGUNTAS } from '../data/banco';
+import { componerBanco, contarPreguntasBanco } from '../data/banco';
 import { contarRespondidas } from '../lib/scoring';
 import {
   cargarSesiones,
@@ -104,6 +104,11 @@ export default function App() {
   const activa = sesiones.find((s) => s.id === activaId) ?? sesiones[0] ?? null;
   const respuestas = activa?.respuestas ?? {};
   const meta = activa?.meta ?? {};
+  // Banco activo: agrega el Módulo C (salud) si la sesión activa lo marca. Para el
+  // consolidado, se incluye si CUALQUIER sesión es del sector salud.
+  const bancoActivo = useMemo(() => componerBanco(!!meta.sectorSalud), [meta.sectorSalud]);
+  const bancoCons = useMemo(() => componerBanco(sesiones.some((s) => !!s.meta.sectorSalud)), [sesiones]);
+  const totalActivo = contarPreguntasBanco(bancoActivo);
 
   const mutarActiva = (fn: (s: Sesion) => Sesion) => {
     setSesiones((prev) =>
@@ -120,7 +125,7 @@ export default function App() {
     });
   };
 
-  const setMetaCampo = (campo: keyof Meta, valor: string) =>
+  const setMetaCampo = (campo: keyof Meta, valor: string | boolean) =>
     mutarActiva((s) => ({ ...s, meta: { ...s.meta, [campo]: valor } }));
 
   const irVista = (v: Vista) => {
@@ -144,7 +149,7 @@ export default function App() {
     const idx = sesiones.findIndex((x) => x.id === id);
     const s = sesiones[idx];
     if (!s) return;
-    const n = contarRespondidas(BANCO, s.respuestas);
+    const n = contarRespondidas(componerBanco(!!s.meta.sectorSalud), s.respuestas);
     const et = etiquetaSesion(s, idx);
     if (!window.confirm(`¿Eliminar la sesión «${et}» (${n} respuestas)? Esta acción no se puede deshacer.`)) return;
     if (bd === 'on') void borrarSesionRemota(id);
@@ -222,7 +227,7 @@ export default function App() {
           onImportarClick={() => pedirImportar('cuestionario')}
           sesiones={sesiones}
           activaId={activa?.id ?? null}
-          total={TOTAL_PREGUNTAS}
+          total={totalActivo}
           dias={dias}
           onNuevaSesion={crearSesion}
           onAbrirSesion={abrirSesion}
@@ -234,6 +239,7 @@ export default function App() {
       {vista === 'cuestionario' && (
         <Cuestionario
           key={activa?.id ?? 'sin-sesion'}
+          banco={bancoActivo}
           respuestas={respuestas}
           etiqueta={etiquetaActiva}
           guardadoEn={guardadoEn}
@@ -246,22 +252,24 @@ export default function App() {
 
       {vista === 'resultados' && (
         <Resultados
+          banco={bancoActivo}
           respuestas={respuestas}
           meta={meta}
           onEditar={() => irVista('cuestionario')}
           onPrint={() => window.print()}
-          onCSV={() => exportarCSV(BANCO, respuestas, meta)}
+          onCSV={() => exportarCSV(bancoActivo, respuestas, meta)}
           onJSON={() => exportarJSON(respuestas, meta)}
         />
       )}
 
       {vista === 'consolidado' && (
         <Consolidado
+          banco={bancoCons}
           sesiones={sesiones}
           onVolver={() => irVista('portada')}
           onImportarClick={() => pedirImportar('consolidado')}
           onAbrirSesion={abrirSesion}
-          onCSV={(conDatos) => exportarConsolidadoCSV(BANCO, conDatos)}
+          onCSV={(conDatos) => exportarConsolidadoCSV(bancoCons, conDatos)}
           onPrint={() => window.print()}
         />
       )}

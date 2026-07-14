@@ -14,7 +14,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { BANCO, NIVEL_META, TOTAL_PREGUNTAS } from '../../../src/data/banco.ts';
+import { componerBanco, contarPreguntasBanco, NIVEL_META } from '../../../src/data/banco.ts';
 import {
   promedioDim,
   promedioModulo,
@@ -75,7 +75,9 @@ for (const s of crudas) {
   const previa = porId.get(s.id);
   if (!previa || (s.actualizada ?? '') > (previa.actualizada ?? '')) porId.set(s.id, s);
 }
-const sesiones = [...porId.values()].filter((s) => contarRespondidas(BANCO, s.respuestas) > 0);
+const sesiones = [...porId.values()].filter((s) => contarRespondidas(componerBanco(!!s.meta?.sectorSalud), s.respuestas) > 0);
+// Para el consolidado, el banco incluye el Módulo C (salud) si alguna sesión lo marca.
+const bancoCons = componerBanco(sesiones.some((s) => !!s.meta?.sectorSalud));
 
 if (sesiones.length === 0) {
   console.error(`No hay sesiones con respuestas: ni en ${rutaBD} ni en los JSON entregados.`);
@@ -87,8 +89,9 @@ const etiqueta = (s, i) => s.meta?.area || s.meta?.institucion || 'Sesión ' + (
 
 function puntuarSesion(s, i) {
   const r = s.respuestas;
+  const banco = componerBanco(!!s.meta?.sectorSalud);
   const porDimension = {};
-  for (const mod of BANCO.modulos) {
+  for (const mod of banco.modulos) {
     for (const d of mod.dimensiones) {
       const m = promedioDim(d, r);
       const na = d.preguntas.filter((p) => r[p.id] === 'na').length;
@@ -104,19 +107,19 @@ function puntuarSesion(s, i) {
       };
     }
   }
-  const g = promedioGlobal(BANCO, r);
+  const g = promedioGlobal(banco, r);
   return {
     id: s.id,
     etiqueta: etiqueta(s, i),
     meta: s.meta ?? {},
     fuente: s.fuente,
     actualizada: s.actualizada,
-    respondidas: contarRespondidas(BANCO, r),
-    totalPreguntas: TOTAL_PREGUNTAS,
+    respondidas: contarRespondidas(banco, r),
+    totalPreguntas: contarPreguntasBanco(banco),
     na: Object.values(r).filter((v) => v === 'na').length,
     global: g,
     nivelGlobal: nivelDe(g).nombre,
-    porModulo: Object.fromEntries(BANCO.modulos.map((mod) => [mod.id, promedioModulo(mod, r)])),
+    porModulo: Object.fromEntries(banco.modulos.map((mod) => [mod.id, promedioModulo(mod, r)])),
     porDimension,
     respuestas: r,
   };
@@ -127,7 +130,7 @@ const sesionesPuntuadas = sesiones.map(puntuarSesion);
 // --- Consolidado -----------------------------------------------------------
 const promInstitucional = (d) => promedioLista(sesiones.map((s) => promedioDim(d, s.respuestas)));
 
-const dimensiones = BANCO.modulos.flatMap((mod) =>
+const dimensiones = bancoCons.modulos.flatMap((mod) =>
   mod.dimensiones.map((d) => {
     const porArea = Object.fromEntries(
       sesiones.map((s, i) => [etiqueta(s, i), promedioDim(d, s.respuestas)])
@@ -150,7 +153,7 @@ const dimensiones = BANCO.modulos.flatMap((mod) =>
   })
 );
 
-const plan = planDeAccionSobre(BANCO, promInstitucional).map((item) => ({
+const plan = planDeAccionSobre(bancoCons, promInstitucional).map((item) => ({
   id: item.dim.id,
   nombre: item.dim.nombre,
   critica: item.dim.critica,
@@ -164,7 +167,7 @@ const plan = planDeAccionSobre(BANCO, promInstitucional).map((item) => ({
 }));
 
 const globalMin = promedioLista(
-  BANCO.modulos.map((mod) => promedioLista(sesiones.map((s) => promedioModulo(mod, s.respuestas))))
+  bancoCons.modulos.map((mod) => promedioLista(sesiones.map((s) => promedioModulo(mod, s.respuestas))))
 );
 
 console.log(
@@ -172,7 +175,7 @@ console.log(
     {
       generado: new Date().toISOString(),
       nivelMeta: NIVEL_META,
-      totalPreguntas: TOTAL_PREGUNTAS,
+      totalPreguntas: contarPreguntasBanco(bancoCons),
       sesiones: sesionesPuntuadas,
       consolidado: {
         areas: sesiones.length,
@@ -180,7 +183,7 @@ console.log(
         nivelGlobal: nivelDe(globalMin).nombre,
         mgde: mgdeDe(globalMin),
         porModulo: Object.fromEntries(
-          BANCO.modulos.map((mod) => [
+          bancoCons.modulos.map((mod) => [
             mod.id,
             promedioLista(sesiones.map((s) => promedioModulo(mod, s.respuestas))),
           ])

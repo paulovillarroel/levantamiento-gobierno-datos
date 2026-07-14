@@ -1,10 +1,12 @@
-import { useState } from 'react';
-import type { Dimension, Modulo, Respuestas, Valor } from '../lib/tipos';
-import { BANCO, ESCALA, TOTAL_PREGUNTAS } from '../data/banco';
+import { useMemo, useState } from 'react';
+import type { Banco, Dimension, Modulo, Respuestas, Valor } from '../lib/tipos';
+import { ESCALA, contarPreguntasBanco } from '../data/banco';
 import { contarRespondidas } from '../lib/scoring';
 import Leyenda from './Leyenda';
 
 interface CuestionarioProps {
+  /** Banco activo (incluye el Módulo C si la sesión es del sector salud). */
+  banco: Banco;
   respuestas: Respuestas;
   /** Nombre de la sesión activa (área/departamento), para no confundir sesiones. */
   etiqueta: string;
@@ -21,9 +23,6 @@ interface Paso {
   dim: Dimension;
 }
 
-/** El cuestionario se recorre por pasos temáticos: una dimensión a la vez. */
-const PASOS: Paso[] = BANCO.modulos.flatMap((mod) => mod.dimensiones.map((dim) => ({ mod, dim })));
-
 function dimCompleta(dim: Dimension, r: Respuestas): boolean {
   return dim.preguntas.every((p) => r[p.id] !== undefined);
 }
@@ -33,17 +32,21 @@ function dimIniciada(dim: Dimension, r: Respuestas): boolean {
 }
 
 /** Primer paso con preguntas sin responder, para retomar donde se quedó. */
-function primerPendiente(r: Respuestas): number {
-  const i = PASOS.findIndex((p) => !dimCompleta(p.dim, r));
+function primerPendiente(pasos: Paso[], r: Respuestas): number {
+  const i = pasos.findIndex((p) => !dimCompleta(p.dim, r));
   return i === -1 ? 0 : i;
 }
 
-export default function Cuestionario({ respuestas, etiqueta, guardadoEn, onResponder, onVerResultados, onVolver, onExportar }: CuestionarioProps) {
-  const [paso, setPaso] = useState(() => primerPendiente(respuestas));
-  const respondidas = contarRespondidas(BANCO, respuestas);
-  const pct = TOTAL_PREGUNTAS ? Math.round((respondidas / TOTAL_PREGUNTAS) * 100) : 0;
-  const actual = PASOS[paso]!;
-  const esUltimo = paso === PASOS.length - 1;
+export default function Cuestionario({ banco, respuestas, etiqueta, guardadoEn, onResponder, onVerResultados, onVolver, onExportar }: CuestionarioProps) {
+  // El cuestionario se recorre por pasos temáticos: una dimensión a la vez (según el banco activo).
+  const PASOS = useMemo<Paso[]>(() => banco.modulos.flatMap((mod) => mod.dimensiones.map((dim) => ({ mod, dim }))), [banco]);
+  const [paso, setPaso] = useState(() => primerPendiente(PASOS, respuestas));
+  const total = contarPreguntasBanco(banco);
+  const respondidas = contarRespondidas(banco, respuestas);
+  const pct = total ? Math.round((respondidas / total) * 100) : 0;
+  const idx = Math.min(paso, PASOS.length - 1);
+  const actual = PASOS[idx]!;
+  const esUltimo = idx === PASOS.length - 1;
 
   const irPaso = (i: number) => {
     setPaso(Math.max(0, Math.min(PASOS.length - 1, i)));
@@ -60,7 +63,7 @@ export default function Cuestionario({ respuestas, etiqueta, guardadoEn, onRespo
               <i style={{ width: pct + '%' }} />
             </div>
             <div className="lbl">
-              {respondidas} de {TOTAL_PREGUNTAS} respondidas ({pct}%)
+              {respondidas} de {total} respondidas ({pct}%)
               {guardadoEn && <span title="El avance se guarda automáticamente con cada respuesta; puede pausar y retomar cuando quiera."> · ✓ guardado {guardadoEn}</span>}
             </div>
           </div>
@@ -75,13 +78,13 @@ export default function Cuestionario({ respuestas, etiqueta, guardadoEn, onRespo
           {PASOS.map((p, i) => {
             const completa = dimCompleta(p.dim, respuestas);
             const iniciada = dimIniciada(p.dim, respuestas);
-            const clase = ['paso-chip', i === paso ? 'actual' : '', completa ? 'lista' : iniciada ? 'parcial' : ''].join(' ');
+            const clase = ['paso-chip', i === idx ? 'actual' : '', completa ? 'lista' : iniciada ? 'parcial' : ''].join(' ');
             return (
               <button
                 key={p.dim.id}
                 type="button"
                 role="tab"
-                aria-selected={i === paso}
+                aria-selected={i === idx}
                 className={clase}
                 title={`${p.dim.nombre}${completa ? ' — completa' : iniciada ? ' — parcial' : ''}`}
                 onClick={() => irPaso(i)}
@@ -103,7 +106,7 @@ export default function Cuestionario({ respuestas, etiqueta, guardadoEn, onRespo
           <h2>{actual.mod.titulo}</h2>
         </div>
         <p className="muted small" style={{ marginTop: 0 }}>
-          Bloque {paso + 1} de {PASOS.length} · {actual.mod.descripcion}
+          Bloque {idx + 1} de {PASOS.length} · {actual.mod.descripcion}
         </p>
 
         <div className="dim">
@@ -160,7 +163,7 @@ export default function Cuestionario({ respuestas, etiqueta, guardadoEn, onRespo
           ) : (
             <button className="btn" onClick={() => irPaso(paso + 1)}>Siguiente →</button>
           )}
-          <span className="muted small">Bloque {paso + 1} / {PASOS.length}</span>
+          <span className="muted small">Bloque {idx + 1} / {PASOS.length}</span>
           <div style={{ flex: 1 }} />
           <button className="btn ghost" onClick={onVolver}>← Volver a portada</button>
         </div>

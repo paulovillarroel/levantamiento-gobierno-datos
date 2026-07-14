@@ -1,6 +1,6 @@
-import type { Dimension, Modulo, Respuestas, Sesion } from '../lib/tipos';
+import type { Banco, Dimension, Modulo, Respuestas, Sesion } from '../lib/tipos';
 import type { ProximoPaso } from '../lib/scoring';
-import { BANCO, ESCALA, NIVEL_META, TOTAL_PREGUNTAS } from '../data/banco';
+import { ESCALA, NIVEL_META, contarPreguntasBanco } from '../data/banco';
 import {
   promedioDim,
   promedioModulo,
@@ -17,6 +17,7 @@ import { etiquetaSesion } from '../lib/persistencia';
 import HojaRuta from './HojaRuta';
 
 interface ConsolidadoProps {
+  banco: Banco;
   sesiones: Sesion[];
   onVolver: () => void;
   onImportarClick: () => void;
@@ -57,20 +58,18 @@ interface BrechaInstitucional {
 
 const FECHA_LIMITE = new Date(2026, 11, 1); // 1-dic-2026
 
-export default function Consolidado({ sesiones, onVolver, onImportarClick, onAbrirSesion, onCSV, onPrint }: ConsolidadoProps) {
+export default function Consolidado({ banco, sesiones, onVolver, onImportarClick, onAbrirSesion, onCSV, onPrint }: ConsolidadoProps) {
   // Solo las sesiones con al menos una respuesta entran al consolidado.
-  const conDatos = sesiones.filter((s) => contarRespondidas(BANCO, s.respuestas) > 0);
-  const sinDatos = sesiones.filter((s) => contarRespondidas(BANCO, s.respuestas) === 0);
+  const conDatos = sesiones.filter((s) => contarRespondidas(banco, s.respuestas) > 0);
+  const sinDatos = sesiones.filter((s) => contarRespondidas(banco, s.respuestas) === 0);
 
-  const modA = BANCO.modulos[0]!;
-  const modB = BANCO.modulos[1]!;
-  const mA = promedioLista(conDatos.map((s) => promedioModulo(modA, s.respuestas)));
-  const mB = promedioLista(conDatos.map((s) => promedioModulo(modB, s.respuestas)));
-  const global = promedioLista([mA, mB]);
+  const total = contarPreguntasBanco(banco);
+  const promModulo = (mod: Modulo) => promedioLista(conDatos.map((s) => promedioModulo(mod, s.respuestas)));
+  const global = promedioLista(banco.modulos.map(promModulo));
 
   // Brechas transversales: dimensiones cuyo nivel institucional (promedio redondeado) queda bajo 3.
   const brechasInst: BrechaInstitucional[] = [];
-  for (const mod of BANCO.modulos) {
+  for (const mod of banco.modulos) {
     for (const d of mod.dimensiones) {
       const m = promedioLista(conDatos.map((s) => promedioDim(d, s.respuestas)));
       if (m !== null && (nivelDe(m).v ?? 5) < 3) {
@@ -81,10 +80,10 @@ export default function Consolidado({ sesiones, onVolver, onImportarClick, onAbr
   }
   brechasInst.sort((a, b) => a.promedio - b.promedio || (b.dim.critica ? 1 : 0) - (a.dim.critica ? 1 : 0));
 
-  const totalDims = BANCO.modulos.reduce((n, mod) => n + mod.dimensiones.length, 0);
+  const totalDims = banco.modulos.reduce((n, mod) => n + mod.dimensiones.length, 0);
   const critInst = brechasInst.filter((x) => x.dim.critica).length;
   const dias = Math.ceil((FECHA_LIMITE.getTime() - Date.now()) / 86400000);
-  const planInst = planDeAccionSobre(BANCO, (d) => promedioLista(conDatos.map((s) => promedioDim(d, s.respuestas))));
+  const planInst = planDeAccionSobre(banco, (d) => promedioLista(conDatos.map((s) => promedioDim(d, s.respuestas))));
 
   return (
     <section className="view">
@@ -129,28 +128,22 @@ export default function Consolidado({ sesiones, onVolver, onImportarClick, onAbr
                   <div className="big" style={{ color: 'var(--brand)' }}>{conDatos.length}</div>
                   <div className="sub">{conDatos.length === 1 ? 'área evaluada' : 'áreas evaluadas'}</div>
                 </div>
-                <div className="box">
-                  <div className="big" style={{ color: colorDe(mA) }}>
-                    {fmt(mA)}<span style={{ fontSize: '16px', color: 'var(--muted)' }}> / 5</span>
-                  </div>
-                  <div className="sub">
-                    <b>Módulo A · Ley 21.719</b><br />
-                    <span className="badge" style={{ background: colorDe(mA), marginTop: '6px' }}>
-                      {nivelDe(mA).nombre} · {mgdeDe(mA)}
-                    </span>
-                  </div>
-                </div>
-                <div className="box">
-                  <div className="big" style={{ color: colorDe(mB) }}>
-                    {fmt(mB)}<span style={{ fontSize: '16px', color: 'var(--muted)' }}> / 5</span>
-                  </div>
-                  <div className="sub">
-                    <b>Módulo B · Gobernanza (MGDE)</b><br />
-                    <span className="badge" style={{ background: colorDe(mB), marginTop: '6px' }}>
-                      {nivelDe(mB).nombre} · {mgdeDe(mB)}
-                    </span>
-                  </div>
-                </div>
+                {banco.modulos.map((mod) => {
+                  const m = promModulo(mod);
+                  return (
+                    <div className="box" key={mod.id}>
+                      <div className="big" style={{ color: colorDe(m) }}>
+                        {fmt(m)}<span style={{ fontSize: '16px', color: 'var(--muted)' }}> / 5</span>
+                      </div>
+                      <div className="sub">
+                        <b>{mod.tituloCorto ?? mod.titulo}</b><br />
+                        <span className="badge" style={{ background: colorDe(m), marginTop: '6px' }}>
+                          {nivelDe(m).nombre} · {mgdeDe(m)}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
               <div style={{ textAlign: 'center', marginTop: '14px' }}>
                 <span className="muted small">Madurez institucional (promedio simple entre áreas): </span>
@@ -206,7 +199,7 @@ export default function Consolidado({ sesiones, onVolver, onImportarClick, onAbr
             </div>
 
             {/* Matriz dimensión × área por módulo */}
-            {BANCO.modulos.map((mod) => (
+            {banco.modulos.map((mod) => (
               <div className="card" key={mod.id}>
                 <h2>{mod.titulo}</h2>
                 <div style={{ overflowX: 'auto' }}>
@@ -308,13 +301,13 @@ export default function Consolidado({ sesiones, onVolver, onImportarClick, onAbr
               </thead>
               <tbody>
                 {sesiones.map((s, i) => {
-                  const n = contarRespondidas(BANCO, s.respuestas);
+                  const n = contarRespondidas(banco, s.respuestas);
                   return (
                     <tr key={s.id}>
                       <td><b>{etiquetaSesion(s, i)}</b></td>
-                      <td style={{ whiteSpace: 'nowrap' }}>{n}/{TOTAL_PREGUNTAS}</td>
+                      <td style={{ whiteSpace: 'nowrap' }}>{n}/{total}</td>
                       <td className="muted">
-                        {n === 0 ? 'Pendiente (sin respuestas)' : n < TOTAL_PREGUNTAS ? 'Parcial' : 'Completa'}
+                        {n === 0 ? 'Pendiente (sin respuestas)' : n < total ? 'Parcial' : 'Completa'}
                       </td>
                       <td style={{ textAlign: 'right' }} className="no-print">
                         <button className="btn ghost mini" onClick={() => onAbrirSesion(s.id)}>Abrir</button>

@@ -3,6 +3,7 @@
 > Versión imprimible de **solo las preguntas** para las reuniones de levantamiento por área/departamento.
 > Generado automáticamente desde `src/data/banco.ts` — **no editar a mano**; regenerar con `node scripts/generar-cuestionario.mjs`.
 > La versión completa (con acciones por nivel y notas jurídicas) está en `docs/banco-preguntas.md`.
+> Incluye el **Módulo C — Sector salud (opcional)**: respóndelo solo si la institución pertenece al sector salud.
 
 **Datos de la sesión**
 
@@ -239,4 +240,33 @@ Si no sabe o no aplica, marque **NS** (No sé / No aplica): esa pregunta no se p
 
 ---
 
-*Total: 69 preguntas · 45–60 min en reunión de levantamiento por área (15–20 min si se responde individualmente). Instrumento orientativo de autodiagnóstico; no constituye asesoría legal.*
+# Módulo C — Sector salud (opcional)
+
+*Preguntas sectoriales para instituciones de salud: régimen reforzado de datos de salud, ficha clínica e interoperabilidad clínica. Responder solo si la institución pertenece al sector salud.*
+
+### C1. Datos de salud y régimen reforzado **(crítica ×1.5)**
+
+| ID | Pregunta | 1 | 2 | 3 | 4 | 5 | NS |
+|---|---|:-:|:-:|:-:|:-:|:-:|:-:|
+| C1.1 | El tratamiento de datos de salud y del perfil biológico humano se limita a los fines de las leyes especiales en materia sanitaria (art. 16 bis) y se ampara en una base de licitud válida. | | | | | | |
+| C1.2 | No tratamos datos de salud ni muestras biológicas recolectados en el ámbito laboral, educativo, deportivo, de seguros o de seguridad social, salvo autorización legal expresa (art. 16 bis). | | | | | | |
+| C1.3 | Aplicamos medidas reforzadas (cifrado, acceso restringido y registro de accesos) a los datos de salud, biométricos y del perfil biológico, con resguardos especiales para niños, niñas y adolescentes. | | | | | | |
+
+### C2. Ficha clínica y derechos del paciente (Ley 20.584)
+
+| ID | Pregunta | 1 | 2 | 3 | 4 | 5 | NS |
+|---|---|:-:|:-:|:-:|:-:|:-:|:-:|
+| C2.1 | La ficha clínica se conserva conforme al Reglamento sobre Fichas Clínicas (Decreto 41/2012): plazo mínimo de 15 años desde la última atención, con custodia y trazabilidad. | | | | | | |
+| C2.2 | El acceso y la entrega de copia de la ficha clínica se gestionan según la Ley 20.584, coordinados con el procedimiento ARCOP de la Ley 21.719 en un canal único (sin duplicar). | | | | | | |
+
+### C3. Interoperabilidad clínica y datos de salud a gran escala
+
+| ID | Pregunta | 1 | 2 | 3 | 4 | 5 | NS |
+|---|---|:-:|:-:|:-:|:-:|:-:|:-:|
+| C3.1 | Usamos y gobernamos estándares semánticos y de terminología clínica (HL7 FHIR, SNOMED CT, CIE-10/CIE-11) para la consistencia del dato clínico entre los nodos de la red asistencial. | | | | | | |
+| C3.2 | Los tratamientos masivos o a gran escala de datos de salud (registros nacionales, listas de espera, tamizajes, modelos predictivos) cuentan con una Evaluación de Impacto (EIPD) previa (art. 15 ter). | | | | | | |
+| C3.3 | El uso secundario de datos de salud (investigación, estadística y salud pública) se realiza con anonimización o seudonimización y control del riesgo de reidentificación. | | | | | | |
+
+---
+
+*Total: 77 preguntas (69 base + 8 del Módulo C opcional para salud) · 45–60 min en reunión de levantamiento por área (15–20 min si se responde individualmente). Instrumento de uso referencial; no constituye asesoría legal.*

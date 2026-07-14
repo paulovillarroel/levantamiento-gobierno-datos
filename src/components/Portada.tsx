@@ -1,12 +1,12 @@
 import type { Meta, Sesion } from '../lib/tipos';
-import { BANCO, FUENTES } from '../data/banco';
+import { FUENTES, componerBanco, contarPreguntasBanco } from '../data/banco';
 import { contarRespondidas } from '../lib/scoring';
 import { etiquetaSesion } from '../lib/persistencia';
 import Leyenda from './Leyenda';
 
 interface PortadaProps {
   meta: Meta;
-  onMeta: (campo: keyof Meta, valor: string) => void;
+  onMeta: (campo: keyof Meta, valor: string | boolean) => void;
   onComenzar: () => void;
   onImportarClick: () => void;
   sesiones: Sesion[];
@@ -29,8 +29,10 @@ export default function Portada({
   sesiones, activaId, total, dias,
   onNuevaSesion, onAbrirSesion, onEliminarSesion, onVerConsolidado,
 }: PortadaProps) {
-  const conDatos = sesiones.filter((s) => contarRespondidas(BANCO, s.respuestas) > 0);
-  const respondidasActiva = contarRespondidas(BANCO, sesiones.find((s) => s.id === activaId)?.respuestas ?? {});
+  const bancoDe = (s: Sesion) => componerBanco(!!s.meta.sectorSalud);
+  const conDatos = sesiones.filter((s) => contarRespondidas(bancoDe(s), s.respuestas) > 0);
+  const activaS = sesiones.find((s) => s.id === activaId);
+  const respondidasActiva = activaS ? contarRespondidas(bancoDe(activaS), activaS.respuestas) : 0;
 
   return (
     <section className="view">
@@ -121,6 +123,20 @@ export default function Portada({
             </div>
           </div>
 
+          <label className="note" style={{ display: 'flex', gap: '10px', alignItems: 'flex-start', marginTop: '16px', cursor: 'pointer' }}>
+            <input
+              type="checkbox"
+              checked={!!meta.sectorSalud}
+              onChange={(e) => onMeta('sectorSalud', e.target.checked)}
+              style={{ marginTop: '3px', flexShrink: 0 }}
+            />
+            <span>
+              🏥 <b>Esta institución pertenece al sector salud.</b> Agrega un <b>módulo sectorial opcional</b> (Módulo C):
+              régimen reforzado de datos de salud (art. 16 bis), ficha clínica (Ley 20.584 / Decreto 41/2012) e
+              interoperabilidad clínica. Déjalo sin marcar si no corresponde.
+            </span>
+          </label>
+
           <div style={{ marginTop: '20px', display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             <button className="btn" onClick={onComenzar}>
               {respondidasActiva > 0 ? 'Continuar sesión →' : 'Comenzar autoevaluación →'}
@@ -157,7 +173,8 @@ export default function Portada({
               </thead>
               <tbody>
                 {sesiones.map((s, i) => {
-                  const n = contarRespondidas(BANCO, s.respuestas);
+                  const n = contarRespondidas(bancoDe(s), s.respuestas);
+                  const tot = contarPreguntasBanco(bancoDe(s));
                   const esActiva = s.id === activaId;
                   return (
                     <tr key={s.id} className={esActiva ? 'ses-activa' : undefined}>
@@ -167,7 +184,7 @@ export default function Portada({
                       </td>
                       <td className="muted">{s.meta.rol || '—'}</td>
                       <td style={{ whiteSpace: 'nowrap' }}>
-                        {n}/{total} {n === 0 && <span className="muted small">(sin respuestas)</span>}
+                        {n}/{tot} {n === 0 && <span className="muted small">(sin respuestas)</span>}
                       </td>
                       <td className="muted" style={{ whiteSpace: 'nowrap' }}>{fechaCorta(s.actualizada)}</td>
                       <td style={{ whiteSpace: 'nowrap', textAlign: 'right' }}>
