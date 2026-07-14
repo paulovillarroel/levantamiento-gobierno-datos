@@ -178,6 +178,29 @@ docker run -p 8080:8080 levantamiento
 
 ---
 
+## Uso en producción y privacidad de los datos
+
+**Usar el instrumento no sube datos al repositorio.** El diseño lo garantiza en tres capas:
+
+1. **Todo vive en el navegador:** las respuestas se guardan en el `localStorage` de cada persona; por responder, nada se envía a internet ni a git.
+2. **`datos/` y los export están en `.gitignore`:** la base SQLite (`datos/levantamiento.sqlite`) y los JSON/CSV exportados están excluidos — un `git add -A` normal **no los toca**.
+3. **Con Docker, la base vive en un volumen** (`datos`), gestionado por Docker y **fuera de la carpeta del repo**.
+
+Es decir, **generar datos ≠ subir datos**: la única forma de filtrar un dato al repositorio sería forzarlo a mano (`git add -f`).
+
+**Para un levantamiento real con un equipo**, la opción más limpia:
+
+- **Instancia interna con Docker** (equipo de quien facilita o un servidor del área): `docker compose up -d --build`. La base de sesiones queda en el volumen `datos`, aislada del repo; el equipo responde por la red interna (`http://IP-del-equipo:8080`) y el consolidado se arma solo. Ese contenedor **es** tu instancia de producción: código público, datos que solo viven ahí.
+- **O más liviano, sin servidor:** cada persona usa la [app en vivo](https://paulovillarroel.github.io/levantamiento-gobierno-datos/) (o el `docker run` del solo-formulario), responde y **exporta su JSON**; quien facilita los importa para el consolidado y los guarda donde corresponda (OneDrive / unidad de red del área), **nunca en el repo**.
+
+> ⚠️ La **consolidación con SQLite necesita HTTP en localhost o red interna**, no la versión pública de GitHub Pages (es HTTPS y estática, sin servidor). Para el modo "completo" con base centralizada, corre Docker internamente.
+
+**Respaldo de la base:** copia periódicamente el volumen o el archivo `.sqlite` a una ubicación segura (OneDrive, unidad de red o un repositorio privado **solo de datos**). No mezcles datos con el código.
+
+**¿Conviene un repositorio aparte?** No para los datos (ya están fuera de git). Solo tiene sentido si vas a **personalizar** el instrumento de forma privada (branding, preguntas propias, notas internas): en ese caso, un **fork privado** que haga `pull` de este repo como *upstream* recibe las mejoras y mantiene tus cambios privados.
+
+---
+
 ## Estructura
 
 ```
