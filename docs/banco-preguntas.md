@@ -346,8 +346,8 @@ También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte
 
 ### C1. Datos de salud y régimen reforzado **(crítica ×1.5)**
 1. Usamos los datos de salud y del **perfil biológico** solo para **fines de salud** (los que permiten las leyes sanitarias), y solo cuando una **norma nos autoriza** a tratarlos (art. 16 bis).
-2. **No** tratamos datos de salud ni muestras biológicas recolectados en el ámbito **laboral, educativo, deportivo, de seguros o de seguridad social**, salvo autorización legal expresa (art. 16 bis).
-3. Aplicamos **medidas reforzadas** (cifrado, acceso restringido y registro de accesos) a los datos de salud, biométricos y del perfil biológico, con resguardos especiales para niños, niñas y adolescentes.
+2. **No** usamos datos de salud ni muestras biológicas que se hayan recogido en contextos **laborales, educativos, deportivos, de seguros o de seguridad social**, salvo que una ley lo permita expresamente (art. 16 bis).
+3. Protegemos los datos de salud, biométricos y del perfil biológico con **medidas de seguridad más estrictas** (cifrado, acceso restringido y registro de quién accede) y con **cuidados adicionales** para los datos de niños, niñas y adolescentes.
 > **Acciones para subir de nivel:**
 > - **→ 2 Básico:** Identificar dónde se tratan datos de salud, del perfil biológico y biométricos, y verificar que su uso responda a un fin sanitario y a una base de licitud.
 > - **→ 3 Definido:** Documentar, para cada tratamiento de datos de salud, el fin sanitario que lo habilita (art. 16 bis) y sus medidas reforzadas de seguridad; formalizar el deber de reserva y secreto del personal clínico.
@@ -357,8 +357,8 @@ También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte
 > ⚠️ *Nota para validación jurídica:* el **art. 16 bis** restringe el tratamiento de datos de salud y del perfil biológico a los fines de las leyes sanitarias y **prohíbe** usar datos/muestras recolectados en el ámbito laboral, educativo, deportivo, de seguros o de seguridad social salvo autorización legal expresa (verificado contra el texto legal).
 
 ### C2. Ficha clínica y derechos del paciente (Ley 20.584)
-1. La **ficha clínica** se conserva conforme al **Reglamento sobre Fichas Clínicas (Decreto 41/2012)**: plazo mínimo de **15 años** desde la última atención, con custodia y trazabilidad.
-2. El acceso y la entrega de copia de la ficha clínica se gestionan según la **Ley 20.584**, coordinados con el procedimiento ARCOP de la Ley 21.719 en un **canal único** (sin duplicar).
+1. Guardamos la **ficha clínica** al menos **15 años** desde la última atención, como exige el **Reglamento sobre Fichas Clínicas (Decreto 41/2012)**, con custodia y registro de quién accede a ella.
+2. Cuando un paciente pide **ver o copiar su ficha clínica**, respondemos según la **Ley 20.584** y por el **mismo canal** con que atendemos los derechos de la Ley 21.719 (sin tener dos vías separadas).
 > **Acciones para subir de nivel:**
 > - **→ 2 Básico:** Identificar dónde están las fichas clínicas (en papel y electrónicas) y quién accede a ellas; cerrar los accesos evidentemente excesivos.
 > - **→ 3 Definido:** Aplicar el Reglamento sobre Fichas Clínicas (Decreto 41/2012): conservación mínima de 15 años desde la última atención, con custodia y trazabilidad; formalizar el procedimiento de acceso y entrega de copia según la Ley 20.584.
@@ -366,9 +366,9 @@ También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte
 > - **→ 5 Optimizado:** Automatizar donde aporte (solicitud y entrega de copia, verificación de identidad) y usar las solicitudes recibidas como señal para mejorar la calidad del registro clínico.
 
 ### C3. Interoperabilidad clínica y datos de salud a gran escala
-1. Usamos y gobernamos **estándares semánticos y de terminología clínica** (HL7 FHIR, SNOMED CT, CIE-10/CIE-11) para la consistencia del dato clínico entre los nodos de la **red asistencial**.
-2. Los tratamientos **masivos o a gran escala** de datos de salud (registros nacionales, listas de espera, tamizajes, modelos predictivos) cuentan con una **EIPD previa** (art. 15 ter).
-3. El **uso secundario** de datos de salud (investigación, estadística y salud pública) se realiza con **anonimización o seudonimización** y control del riesgo de reidentificación.
+1. Usamos y mantenemos **estándares clínicos comunes** (HL7 FHIR, SNOMED CT, CIE-10/CIE-11) para que el dato clínico **signifique lo mismo** en los distintos establecimientos y sistemas de la **red asistencial**.
+2. Antes de iniciar un **tratamiento masivo** de datos de salud (registros nacionales, listas de espera, tamizajes, modelos predictivos) hacemos una **Evaluación de Impacto (EIPD)** (art. 15 ter).
+3. Cuando **reutilizamos** datos de salud para investigación, estadística o salud pública, lo hacemos con datos **anonimizados o seudonimizados**, cuidando que no se pueda **reidentificar** a las personas.
 > **Acciones para subir de nivel:**
 > - **→ 2 Básico:** Identificar las terminologías clínicas que se usan de hecho (CIE, SNOMED CT, códigos locales) y los tratamientos de datos de salud a gran escala (registros, listas de espera).
 > - **→ 3 Definido:** Adoptar estándares semánticos y de terminología clínica (HL7 FHIR, SNOMED CT, CIE-10/CIE-11) con un responsable de su gobierno, y exigir EIPD previa a los tratamientos masivos de datos de salud (art. 15 ter).

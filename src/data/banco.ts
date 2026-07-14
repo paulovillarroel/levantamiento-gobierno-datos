@@ -432,8 +432,8 @@ export const MODULO_SALUD: Modulo = {
       },
       preguntas: [
         { id: 'C1.1', texto: 'Usamos los datos de salud y del perfil biológico solo para fines de salud (los que permiten las leyes sanitarias), y solo cuando una norma nos autoriza a tratarlos (art. 16 bis).' },
-        { id: 'C1.2', texto: 'No tratamos datos de salud ni muestras biológicas recolectados en el ámbito laboral, educativo, deportivo, de seguros o de seguridad social, salvo autorización legal expresa (art. 16 bis).' },
-        { id: 'C1.3', texto: 'Aplicamos medidas reforzadas (cifrado, acceso restringido y registro de accesos) a los datos de salud, biométricos y del perfil biológico, con resguardos especiales para niños, niñas y adolescentes.' },
+        { id: 'C1.2', texto: 'No usamos datos de salud ni muestras biológicas que se hayan recogido en contextos laborales, educativos, deportivos, de seguros o de seguridad social, salvo que una ley lo permita expresamente (art. 16 bis).' },
+        { id: 'C1.3', texto: 'Protegemos los datos de salud, biométricos y del perfil biológico con medidas de seguridad más estrictas (cifrado, acceso restringido y registro de quién accede) y con cuidados adicionales para los datos de niños, niñas y adolescentes.' },
       ],
     },
     {
@@ -445,8 +445,8 @@ export const MODULO_SALUD: Modulo = {
         n5: 'Automatizar donde aporte (solicitud y entrega de copia, verificación de identidad) y usar las solicitudes recibidas como señal para mejorar la calidad del registro clínico.',
       },
       preguntas: [
-        { id: 'C2.1', texto: 'La ficha clínica se conserva conforme al Reglamento sobre Fichas Clínicas (Decreto 41/2012): plazo mínimo de 15 años desde la última atención, con custodia y trazabilidad.' },
-        { id: 'C2.2', texto: 'El acceso y la entrega de copia de la ficha clínica se gestionan según la Ley 20.584, coordinados con el procedimiento ARCOP de la Ley 21.719 en un canal único (sin duplicar).' },
+        { id: 'C2.1', texto: 'Guardamos la ficha clínica al menos 15 años desde la última atención, como exige el Reglamento sobre Fichas Clínicas (Decreto 41/2012), con custodia y registro de quién accede a ella.' },
+        { id: 'C2.2', texto: 'Cuando un paciente pide ver o copiar su ficha clínica, respondemos según la Ley 20.584 y por el mismo canal con que atendemos los derechos de la Ley 21.719 (sin tener dos vías separadas).' },
       ],
     },
     {
@@ -458,9 +458,9 @@ export const MODULO_SALUD: Modulo = {
         n5: 'Avanzar hacia interoperabilidad semántica por diseño en la red asistencial (perfiles FHIR nacionales, mapeos terminológicos mantenidos) e incorporar técnicas avanzadas (privacidad diferencial, datos sintéticos) en el uso secundario.',
       },
       preguntas: [
-        { id: 'C3.1', texto: 'Usamos y gobernamos estándares semánticos y de terminología clínica (HL7 FHIR, SNOMED CT, CIE-10/CIE-11) para la consistencia del dato clínico entre los nodos de la red asistencial.' },
-        { id: 'C3.2', texto: 'Los tratamientos masivos o a gran escala de datos de salud (registros nacionales, listas de espera, tamizajes, modelos predictivos) cuentan con una Evaluación de Impacto (EIPD) previa (art. 15 ter).' },
-        { id: 'C3.3', texto: 'El uso secundario de datos de salud (investigación, estadística y salud pública) se realiza con anonimización o seudonimización y control del riesgo de reidentificación.' },
+        { id: 'C3.1', texto: 'Usamos y mantenemos estándares clínicos comunes (HL7 FHIR, SNOMED CT, CIE-10/CIE-11) para que el dato clínico signifique lo mismo en los distintos establecimientos y sistemas de la red asistencial.' },
+        { id: 'C3.2', texto: 'Antes de iniciar un tratamiento masivo de datos de salud (registros nacionales, listas de espera, tamizajes, modelos predictivos) hacemos una Evaluación de Impacto (EIPD) (art. 15 ter).' },
+        { id: 'C3.3', texto: 'Cuando reutilizamos datos de salud para investigación, estadística o salud pública, lo hacemos con datos anonimizados o seudonimizados, cuidando que no se pueda reidentificar a las personas.' },
       ],
     },
   ],

@@ -249,23 +249,23 @@ Si no sabe o no aplica, marque **NS** (No sé / No aplica): esa pregunta no se p
 | ID | Pregunta | 1 | 2 | 3 | 4 | 5 | NS |
 |---|---|:-:|:-:|:-:|:-:|:-:|:-:|
 | C1.1 | Usamos los datos de salud y del perfil biológico solo para fines de salud (los que permiten las leyes sanitarias), y solo cuando una norma nos autoriza a tratarlos (art. 16 bis). | | | | | | |
-| C1.2 | No tratamos datos de salud ni muestras biológicas recolectados en el ámbito laboral, educativo, deportivo, de seguros o de seguridad social, salvo autorización legal expresa (art. 16 bis). | | | | | | |
-| C1.3 | Aplicamos medidas reforzadas (cifrado, acceso restringido y registro de accesos) a los datos de salud, biométricos y del perfil biológico, con resguardos especiales para niños, niñas y adolescentes. | | | | | | |
+| C1.2 | No usamos datos de salud ni muestras biológicas que se hayan recogido en contextos laborales, educativos, deportivos, de seguros o de seguridad social, salvo que una ley lo permita expresamente (art. 16 bis). | | | | | | |
+| C1.3 | Protegemos los datos de salud, biométricos y del perfil biológico con medidas de seguridad más estrictas (cifrado, acceso restringido y registro de quién accede) y con cuidados adicionales para los datos de niños, niñas y adolescentes. | | | | | | |
 
 ### C2. Ficha clínica y derechos del paciente (Ley 20.584)
 
 | ID | Pregunta | 1 | 2 | 3 | 4 | 5 | NS |
 |---|---|:-:|:-:|:-:|:-:|:-:|:-:|
-| C2.1 | La ficha clínica se conserva conforme al Reglamento sobre Fichas Clínicas (Decreto 41/2012): plazo mínimo de 15 años desde la última atención, con custodia y trazabilidad. | | | | | | |
-| C2.2 | El acceso y la entrega de copia de la ficha clínica se gestionan según la Ley 20.584, coordinados con el procedimiento ARCOP de la Ley 21.719 en un canal único (sin duplicar). | | | | | | |
+| C2.1 | Guardamos la ficha clínica al menos 15 años desde la última atención, como exige el Reglamento sobre Fichas Clínicas (Decreto 41/2012), con custodia y registro de quién accede a ella. | | | | | | |
+| C2.2 | Cuando un paciente pide ver o copiar su ficha clínica, respondemos según la Ley 20.584 y por el mismo canal con que atendemos los derechos de la Ley 21.719 (sin tener dos vías separadas). | | | | | | |
 
 ### C3. Interoperabilidad clínica y datos de salud a gran escala
 
 | ID | Pregunta | 1 | 2 | 3 | 4 | 5 | NS |
 |---|---|:-:|:-:|:-:|:-:|:-:|:-:|
-| C3.1 | Usamos y gobernamos estándares semánticos y de terminología clínica (HL7 FHIR, SNOMED CT, CIE-10/CIE-11) para la consistencia del dato clínico entre los nodos de la red asistencial. | | | | | | |
-| C3.2 | Los tratamientos masivos o a gran escala de datos de salud (registros nacionales, listas de espera, tamizajes, modelos predictivos) cuentan con una Evaluación de Impacto (EIPD) previa (art. 15 ter). | | | | | | |
-| C3.3 | El uso secundario de datos de salud (investigación, estadística y salud pública) se realiza con anonimización o seudonimización y control del riesgo de reidentificación. | | | | | | |
+| C3.1 | Usamos y mantenemos estándares clínicos comunes (HL7 FHIR, SNOMED CT, CIE-10/CIE-11) para que el dato clínico signifique lo mismo en los distintos establecimientos y sistemas de la red asistencial. | | | | | | |
+| C3.2 | Antes de iniciar un tratamiento masivo de datos de salud (registros nacionales, listas de espera, tamizajes, modelos predictivos) hacemos una Evaluación de Impacto (EIPD) (art. 15 ter). | | | | | | |
+| C3.3 | Cuando reutilizamos datos de salud para investigación, estadística o salud pública, lo hacemos con datos anonimizados o seudonimizados, cuidando que no se pueda reidentificar a las personas. | | | | | | |
 
 ---
 
