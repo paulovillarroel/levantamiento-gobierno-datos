@@ -345,7 +345,7 @@ También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte
 *3 dimensiones · 8 preguntas. **Opcional**: se activa marcando "🏥 Esta institución pertenece al sector salud" en la portada; no afecta a las instituciones que no lo marcan. Recoge, como espacio propio, el **régimen legal reforzado del dato de salud** —que antes de generalizar el instrumento estaba integrado en los Módulos A/B—: arts. 16 y 16 bis de la Ley 21.719, la Ley 20.584 y el Reglamento sobre Fichas Clínicas (Decreto 41/2012), la EIPD (art. 15 ter) y la interoperabilidad clínica. Contenido verificado contra el texto legal (2026-07-14).*
 
 ### C1. Datos de salud y régimen reforzado **(crítica ×1.5)**
-1. El tratamiento de datos de salud y del **perfil biológico humano** se limita a los fines de las **leyes especiales en materia sanitaria** (art. 16 bis) y se ampara en una base de licitud válida.
+1. Usamos los datos de salud y del **perfil biológico** solo para **fines de salud** (los que permiten las leyes sanitarias), y solo cuando una **norma nos autoriza** a tratarlos (art. 16 bis).
 2. **No** tratamos datos de salud ni muestras biológicas recolectados en el ámbito **laboral, educativo, deportivo, de seguros o de seguridad social**, salvo autorización legal expresa (art. 16 bis).
 3. Aplicamos **medidas reforzadas** (cifrado, acceso restringido y registro de accesos) a los datos de salud, biométricos y del perfil biológico, con resguardos especiales para niños, niñas y adolescentes.
 > **Acciones para subir de nivel:**

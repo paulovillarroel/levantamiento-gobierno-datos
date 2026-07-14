@@ -248,7 +248,7 @@ Si no sabe o no aplica, marque **NS** (No sé / No aplica): esa pregunta no se p
 
 | ID | Pregunta | 1 | 2 | 3 | 4 | 5 | NS |
 |---|---|:-:|:-:|:-:|:-:|:-:|:-:|
-| C1.1 | El tratamiento de datos de salud y del perfil biológico humano se limita a los fines de las leyes especiales en materia sanitaria (art. 16 bis) y se ampara en una base de licitud válida. | | | | | | |
+| C1.1 | Usamos los datos de salud y del perfil biológico solo para fines de salud (los que permiten las leyes sanitarias), y solo cuando una norma nos autoriza a tratarlos (art. 16 bis). | | | | | | |
 | C1.2 | No tratamos datos de salud ni muestras biológicas recolectados en el ámbito laboral, educativo, deportivo, de seguros o de seguridad social, salvo autorización legal expresa (art. 16 bis). | | | | | | |
 | C1.3 | Aplicamos medidas reforzadas (cifrado, acceso restringido y registro de accesos) a los datos de salud, biométricos y del perfil biológico, con resguardos especiales para niños, niñas y adolescentes. | | | | | | |
 

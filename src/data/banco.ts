@@ -431,7 +431,7 @@ export const MODULO_SALUD: Modulo = {
         n5: 'Minimizar de forma continua (anonimización/seudonimización por defecto en la analítica clínica) y anticipar riesgos como la reidentificación por cruce de fuentes de salud.',
       },
       preguntas: [
-        { id: 'C1.1', texto: 'El tratamiento de datos de salud y del perfil biológico humano se limita a los fines de las leyes especiales en materia sanitaria (art. 16 bis) y se ampara en una base de licitud válida.' },
+        { id: 'C1.1', texto: 'Usamos los datos de salud y del perfil biológico solo para fines de salud (los que permiten las leyes sanitarias), y solo cuando una norma nos autoriza a tratarlos (art. 16 bis).' },
         { id: 'C1.2', texto: 'No tratamos datos de salud ni muestras biológicas recolectados en el ámbito laboral, educativo, deportivo, de seguros o de seguridad social, salvo autorización legal expresa (art. 16 bis).' },
         { id: 'C1.3', texto: 'Aplicamos medidas reforzadas (cifrado, acceso restringido y registro de accesos) a los datos de salud, biométricos y del perfil biológico, con resguardos especiales para niños, niñas y adolescentes.' },
       ],
