@@ -1,7 +1,7 @@
 # Autoevaluación de madurez — Ley 21.719 + Gobernanza de datos
 
 <p align="center">
-  <img src="docs/img/portada.png" alt="¿Qué tan madura es la gobernanza de datos de tu institución? Autodiagnóstico abierto para toda institución pública de Chile, alineado al Marco de Gobernanza de Datos del Estado — Ley 21.719" width="520">
+  <img src="public/portada.png" alt="¿Qué tan madura es la gobernanza de datos de tu institución? Autodiagnóstico abierto para toda institución pública de Chile, alineado al Marco de Gobernanza de Datos del Estado — Ley 21.719" width="520">
 </p>
 
 <p align="center">
