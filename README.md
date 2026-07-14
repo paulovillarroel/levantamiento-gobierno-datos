@@ -102,7 +102,25 @@ Para **distribuir**: ejecutar `npm run build` y compartir la carpeta `dist/` (se
 
 ## Base de datos local (SQLite) — opcional
 
-Para centralizar las sesiones del levantamiento en el equipo de quien facilita el proceso:
+El formulario funciona **por sí solo** en el navegador, pero levantar el servidor de sesiones agrega una capa de **consolidación y respaldo** que marca la diferencia cuando el levantamiento involucra a varias áreas. La comparación:
+
+| | Solo el formulario (navegador) | + Servidor de sesiones (SQLite) |
+|---|---|---|
+| Dónde viven las respuestas | En el navegador de cada persona (localStorage) | Centralizadas en una base única, en el equipo del facilitador |
+| Juntar varias áreas | Manual: exportar un JSON por área e importarlos uno a uno | **Automático**: la app sincroniza sola (indicador "● BD conectada") |
+| Si se limpia el navegador o se cambia de equipo | Se pierde ese avance | Persiste en la base |
+| Consolidado institucional | Hay que reunir antes todos los JSON | Siempre al día con todas las sesiones |
+| Respaldo y análisis | — | La base se puede copiar, versionar y analizar |
+
+**Ventajas concretas de levantar el servidor:**
+
+- **Consolidación sin fricción:** varias áreas responden y todo llega a una sola base; no hay que andar enviando y juntando archivos JSON por correo.
+- **Respaldo real:** el avance no depende del navegador de cada quien — sobrevive a limpiezas de caché, cambios de equipo o cierres de sesión.
+- **Snapshots y evolución en el tiempo:** al ser un archivo `.sqlite`, puedes guardar copias fechadas y **comparar mediciones** entre sí (el skill de análisis acepta `--bd copia.sqlite`).
+- **Insumo directo para el informe de consultoría:** el skill `/analizar-resultados` lee la base y produce el diagnóstico con el **mismo puntaje de la app**, sin pasos intermedios.
+- **Cero costo de adopción:** sin dependencias nuevas (SQLite viene integrado en Node) y **sin exponer nada a internet** — la base vive solo en el equipo del facilitador.
+
+Para levantarlo (en el equipo de quien facilita el proceso):
 
 ```bash
 npm run servidor   # servidor local en el puerto 8787; BD en datos/levantamiento.sqlite
