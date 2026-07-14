@@ -201,6 +201,43 @@ Es decir, **generar datos ≠ subir datos**: la única forma de filtrar un dato 
 
 ---
 
+## Respaldo y persistencia de la base
+
+Al levantar el servidor con Docker, las sesiones se guardan en un **volumen** (`…_datos`) gestionado por Docker, **fuera de la carpeta del repo**. Ese volumen **persiste** entre reinicios y reconstrucciones:
+
+| Comando | Efecto sobre los datos |
+|---|---|
+| `docker compose restart` · `stop` · `up` · `up --build` | ✅ se conservan |
+| `docker compose down` (sin `-v`) | ✅ se conservan (solo borra los contenedores) |
+| `docker compose down -v` | ⚠️ **borra el volumen y los datos** |
+
+Para respaldarlos **fuera de ese equipo** (por si falla el disco) y tener trazabilidad en el tiempo:
+
+**Snapshot en JSON por la API — la vía recomendada** (siempre consistente y re-importable):
+
+```bash
+curl -s http://localhost:8787/api/sesiones > backup-$(date +%F).json
+```
+
+Guárdalo en OneDrive / unidad de red. Para restaurarlo:
+
+```bash
+curl -X PUT http://localhost:8787/api/sesiones -H 'content-type: application/json' -d @backup-AAAA-MM-DD.json
+```
+
+**Copia del archivo SQLite** (usa modo WAL: conviene `docker compose stop servidor` antes de copiar, para una copia consistente):
+
+```bash
+docker compose cp servidor:/app/datos/levantamiento.sqlite ./backup.sqlite   # extraer
+docker compose cp ./backup.sqlite servidor:/app/datos/levantamiento.sqlite   # restaurar (luego: docker compose restart servidor)
+```
+
+**Desde la app, sin terminal:** vista **Consolidado → "Exportar CSV consolidado"**, o el JSON por sesión.
+
+> **Rutina sugerida:** al cierre de cada jornada de levantamiento, corre el `curl … > backup-fecha.json` a OneDrive/red. El volumen es tu instancia de trabajo; el JSON fechado es tu **respaldo durable** y, además, el insumo para **comparar mediciones en el tiempo** (`node .claude/skills/analizar-resultados/extraer.mjs --bd copia.sqlite`).
+
+---
+
 ## Estructura
 
 ```
