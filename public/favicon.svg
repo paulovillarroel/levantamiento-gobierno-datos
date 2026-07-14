@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Madurez de gobernanza de datos">
+  <rect width="32" height="32" rx="7" fill="#F1EEE4"/>
+  <rect x="6"     y="21"   width="3" height="5"    rx="0.6" fill="#CBC5AF"/>
+  <rect x="10.25" y="18.5" width="3" height="7.5"  rx="0.6" fill="#B4CDBB"/>
+  <rect x="14.5"  y="14.5" width="3" height="11.5" rx="0.6" fill="#82BA9D"/>
+  <rect x="18.75" y="10.5" width="3" height="15.5" rx="0.6" fill="#3F9A72"/>
+  <rect x="23"    y="6.5"  width="3" height="19.5" rx="0.6" fill="#15704F"/>
+  <path d="M24.5 3 L26.2 5.4 L22.8 5.4 Z" fill="#15704F"/>
+</svg>

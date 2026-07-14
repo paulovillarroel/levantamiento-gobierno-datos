@@ -20,6 +20,9 @@ const canonical = new URL(`${base}/`, site).href;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+    <link rel="icon" href={`${base}/favicon.ico`} sizes="any" />
+    <link rel="apple-touch-icon" href={`${base}/apple-touch-icon.png`} />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <title>{title}</title>
