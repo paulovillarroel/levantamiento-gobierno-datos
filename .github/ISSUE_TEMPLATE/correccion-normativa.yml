@@ -1,0 +1,43 @@
+name: "⚖️ Corrección normativa"
+description: "Una pregunta, acción o nota del banco no refleja bien la ley o un marco oficial."
+labels: ["normativa", "por-revisar"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por mejorar la precisión del instrumento. **Regla de oro:** toda corrección normativa debe citar una **fuente oficial** (ver la sección *Fuentes* del README). No de memoria.
+  - type: input
+    id: ubicacion
+    attributes:
+      label: "¿Dónde? (dimensión / pregunta / acción)"
+      placeholder: "Ej: A7.1, o la acción →3 de A6, o la nota de B9"
+    validations:
+      required: true
+  - type: textarea
+    id: dice
+    attributes:
+      label: "Qué dice hoy"
+    validations:
+      required: true
+  - type: textarea
+    id: deberia
+    attributes:
+      label: "Qué debería decir (y por qué)"
+    validations:
+      required: true
+  - type: textarea
+    id: fuente
+    attributes:
+      label: "Fuente oficial (URL + artículo o sección)"
+      placeholder: "Ej: Ley 21.719, art. 15 ter — https://www.bcn.cl/leychile/navegar?idNorma=1209272"
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: "Confirmación"
+      options:
+        - label: "La corrección está respaldada en la fuente oficial citada (no es de memoria)."
+          required: true
+        - label: "Si el punto depende de interpretación jurídica, lo indico para marcarlo con ⚠️."
+          required: false

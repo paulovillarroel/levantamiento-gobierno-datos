@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 📖 Guía de contribución
+    url: https://github.com/paulovillarroel/levantamiento-gobierno-datos/blob/main/CONTRIBUTING.md
+    about: Lee la convención antes de abrir un issue o PR (espejo de 3 archivos, fuentes oficiales, commits).

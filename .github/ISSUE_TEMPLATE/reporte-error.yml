@@ -1,0 +1,43 @@
+name: "🐛 Reporte de error"
+description: "Algo falla en la app, el servidor SQLite, el Docker o el skill."
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: componente
+    attributes:
+      label: "Componente"
+      options:
+        - "App web (formulario / resultados / consolidado)"
+        - "Servidor SQLite (npm run servidor)"
+        - "Docker"
+        - "Skill de análisis (/analizar-resultados)"
+        - "Otro"
+    validations:
+      required: true
+  - type: textarea
+    id: que-paso
+    attributes:
+      label: "Qué pasó"
+      description: "Qué esperabas y qué ocurrió."
+    validations:
+      required: true
+  - type: textarea
+    id: pasos
+    attributes:
+      label: "Pasos para reproducir"
+      placeholder: |
+        1. …
+        2. …
+        3. …
+    validations:
+      required: false
+  - type: input
+    id: entorno
+    attributes:
+      label: "Entorno"
+      placeholder: "Navegador / SO / versión de Node / Docker"
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+      value: "⚠️ **No pegues datos de respuestas reales** ni capturas con información institucional sensible."

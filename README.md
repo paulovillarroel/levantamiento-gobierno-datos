@@ -181,6 +181,17 @@ Con resultados aplicados (BD SQLite y/o JSON exportados), en Claude Code se invo
 
 ---
 
+## Contribuir
+
+Las contribuciones son bienvenidas — sobre todo las que mejoran la **precisión normativa** del banco o lo hacen más útil para cualquier institución pública. Puedes:
+
+- **Abrir un issue** (*New issue* → elige la plantilla): ⚖️ corrección normativa, ➕ sugerencia de pregunta o 🐛 reporte de error.
+- **Enviar un Pull Request** siguiendo la convención.
+
+Dos reglas clave: el contenido normativo **se cita con su fuente oficial** (no de memoria), y el banco vive en un **espejo de tres archivos** — `src/data/banco.ts` + `docs/banco-preguntas.md` + `docs/cuestionario.md` (regenerado) — que deben ir sincronizados en el mismo PR. El detalle, en [`CONTRIBUTING.md`](CONTRIBUTING.md).
+
+---
+
 ## Alcance y descargo
 
 Instrumento **de uso referencial**: apoya el diagnóstico y el desarrollo del gobierno de datos institucional y **no constituye asesoría legal**. Se sugiere que el **equipo jurídico / DPO de cada institución** valide el banco de preguntas antes de un uso formal — al menos los puntos marcados con ⚠️ en `docs/banco-preguntas.md`.

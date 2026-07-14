@@ -1,0 +1,46 @@
+name: "➕ Sugerencia de pregunta o dimensión"
+description: "Una capacidad que el instrumento no mide y debería."
+labels: ["sugerencia", "banco"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Es un **levantamiento inicial** (liviano, respondible en una reunión). Antes de sugerir, revisa si el punto no está ya cubierto por otra dimensión.
+  - type: textarea
+    id: capacidad
+    attributes:
+      label: "¿Qué capacidad mediría?"
+      description: "Redáctala idealmente como una afirmación en primera persona, al estilo del banco."
+    validations:
+      required: true
+  - type: textarea
+    id: porque
+    attributes:
+      label: "¿Por qué falta y qué aporta?"
+      description: "¿Qué no queda cubierto hoy? ¿A qué institución pública le sirve?"
+    validations:
+      required: true
+  - type: input
+    id: anclaje
+    attributes:
+      label: "Anclaje (norma o marco)"
+      placeholder: "Ej: art. 22 Ley 21.719 / dimensión MGDE / DAMA-DMBOK"
+    validations:
+      required: false
+  - type: dropdown
+    id: modulo
+    attributes:
+      label: "Módulo"
+      options:
+        - "A — Ley 21.719"
+        - "B — Gobernanza / MGDE"
+        - "No estoy seguro"
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: "Confirmación"
+      options:
+        - label: "Verifiqué que ninguna dimensión existente ya lo cubre."
+          required: true
