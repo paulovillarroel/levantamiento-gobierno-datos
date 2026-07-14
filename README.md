@@ -1,5 +1,9 @@
 # Autoevaluación de madurez — Ley 21.719 + Gobernanza de datos
 
+<p align="center">
+  <img src="docs/img/portada.png" alt="¿Qué tan madura es la gobernanza de datos de tu institución? Autodiagnóstico abierto para toda institución pública de Chile, alineado al Marco de Gobernanza de Datos del Estado — Ley 21.719" width="520">
+</p>
+
 Herramienta web de **autodiagnóstico de madurez** para estimar qué tan preparada está una institución pública frente a la **nueva Ley de Protección de Datos Personales (Ley 21.719, vigente 1-dic-2026)** y frente al **estado del arte en gobernanza de datos** (alineado al **MGDE — Marco de Gestión de Datos del Estado**).
 
 Es un **formulario tipo Likert** simple, en lenguaje claro, con **escala de madurez 1–5**. Entrega puntajes por dimensión, un panel con gráficos radar y un **plan de acción por dimensión**: cada dimensión trae una escalera de acciones por nivel (→2/→3/→4/→5, estilo playbook BID) y el reporte muestra la acción concreta para subir al siguiente nivel — para todas las dimensiones, no solo las brechas.
