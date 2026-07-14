@@ -8,6 +8,8 @@
 >
 > **Re-verificación (2026-07-13):** tras generalizar el instrumento (de un ministerio a cualquier institución pública), el banco se contrastó de nuevo contra el **texto oficial completo de la Ley 19.628 reformada (XML LeyChile, versión al 1-12-2026)**, la síntesis BCN, la Guía Práctica SGD, la **Guía Técnica MGDE** (act. 29-11-2024, incl. matriz del Anexo N° 1), el RAT publicado por la SGD, la Guía de Anonimización (v.1, 20-03-2025), el Decreto 10/2023, la Política Nacional de IA (D.S. 12/2024 MinCiencia) y las fuentes del CPLT. Correcciones de esta revisión: (1) los casos que gatillan **siempre** una EIPD son los del **art. 15 ter** — "NNA" y "nuevas tecnologías" no son gatillantes legales, y la consulta a la Agencia por alto riesgo residual es **facultativa**; (2) las **cláusulas contractuales modelo** para transferencias internacionales las aprueba la **Agencia** (art. 28); la referencia de la Guía SGD al Ministerio de Economía es transitoria; (3) se precisó la nota de A6: ante órganos públicos los derechos directamente exigibles son **acceso, rectificación y oposición** (arts. 21 y 23); (4) el contrato con encargados debe regular también la **duración** (art. 15 bis); (5) la clasificación de atributos de la Guía de Anonimización es **identificadores directos / indirectos o cuasi-identificadores / atributos objetivos**; (6) el CPLT pasó de la Instrucción General en pilotaje a las **Recomendaciones sobre Transparencia Algorítmica** (Res. Ex. N° 372/2024, D.O. 30-08-2024).
 >
+> **Revisión de lenguaje claro (2026-07-14):** se reformularon las 8 preguntas del Módulo C y 43 de los Módulos A y B para lectura de un usuario medio —primera persona, glosas para los términos técnicos (base de licitud, linaje, datos maestros, *need-to-know*, seudonimización), oraciones más cortas—, conservando el significado, los términos legales clave y las citas de artículos. **Los anclajes normativos no cambiaron.**
+>
 > **Cronograma oficial (Guía SGD):** primeros pasos (dic 2025–ene 2026) → levantamiento de información (ene–abr 2026) → informe de hallazgos y Comité Ejecutivo (abr 2026) → catálogo de datos (may–jun 2026) → política de tratamiento (jul 2026) → protocolos, reglas y procedimientos (ago–nov 2026).
 
 ## Escala de respuesta (igual para todas las preguntas)
@@ -51,8 +53,8 @@ También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte
 > *Nota:* si el organismo designa DPO (voluntario, ligado al modelo de prevención), este debe asumir las funciones del encargado/responsable para evitar duplicidad (Guía SGD); la designación se hace con cargo a la dotación vigente (art. quinto transitorio, Ley 21.719).
 
 ### A2. Base de licitud (tratamiento por órgano público) **(crítica ×1.5)**
-1. Para cada tratamiento identificamos y documentamos su **base de licitud** (función legal del órgano, obligación legal, consentimiento u otra).
-2. Los tratamientos se limitan al ejercicio de nuestras funciones y competencias legales, sin usos incompatibles con la finalidad declarada.
+1. Para cada uso de datos personales, tenemos identificado y documentado **qué nos autoriza legalmente** (base de licitud: función legal del órgano, obligación legal, consentimiento u otra).
+2. Usamos los datos personales **solo dentro de nuestras funciones y competencias legales**, y solo para el fin declarado al recolectarlos (sin reutilizarlos para fines incompatibles).
 3. El personal conoce y aplica el **deber de reserva/confidencialidad** sobre los datos personales.
 > **Acciones para subir de nivel:**
 > - **→ 2 Básico:** Identificar, para los tratamientos más relevantes, qué norma o función legal los habilita, y recordar al personal el deber de reserva al asumir sus funciones.
@@ -62,8 +64,8 @@ También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte
 
 ### A3. Inventario de datos y Catálogo/RAT **(crítica ×1.5)**
 1. Realizamos un **levantamiento** de los datos personales que trata cada área (qué datos, si son sensibles, con qué finalidad, dónde se almacenan, cuánto se conservan y a quién se transfieren) (matriz de levantamiento, Guía SGD).
-2. Contamos con un **catálogo o registro de actividades de tratamiento (RAT)** que documenta, por actividad, finalidad, base de licitud, categorías de datos y de titulares (deber de información y transparencia, **art. 14 ter**).
-3. El catálogo/RAT también registra destinatarios, plazos de conservación y fuente de los datos, y se **mantiene actualizado**.
+2. Contamos con un **catálogo o registro de actividades de tratamiento (RAT)** que documenta, para cada actividad, su finalidad, qué la autoriza (base de licitud) y qué tipos de datos y de personas involucra (deber de información y transparencia, **art. 14 ter**).
+3. El catálogo/RAT también registra **a quién se entregan los datos** (destinatarios), **cuánto tiempo se conservan** y **de dónde provienen**, y se **mantiene actualizado**.
 > **Acciones para subir de nivel:**
 > - **→ 2 Básico:** Iniciar el levantamiento por las áreas que tratan más datos personales, usando la matriz de la Guía SGD (qué datos, si son sensibles, finalidad, dónde se almacenan, retención y transferencias), sin olvidar las unidades de soporte (oficina de partes, jurídica, bienestar), que suelen tratar datos sensibles.
 > - **→ 3 Definido:** Completar el levantamiento en todas las áreas, elaborar el **informe de hallazgos** y construir el **Catálogo/RAT** (formatos tipo SGD; el RAT que publica la propia SGD, de 9 campos, sirve de modelo); asignar responsable de su mantención.
@@ -74,8 +76,8 @@ También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte
 
 ### A4. Datos sensibles **(crítica ×1.5)**
 1. Tenemos **identificados y clasificados** los datos sensibles que tratamos (p. ej. salud, situación socioeconómica, afiliación política o sindical, creencias, datos biométricos, vida sexual).
-2. El tratamiento de **datos sensibles** se ampara en una base de licitud válida y se limita a los fines de la norma que lo habilita (p. ej., en salud, las leyes sanitarias).
-3. Aplicamos **medidas reforzadas** a los datos sensibles (cifrado, acceso restringido, registro de accesos) y resguardos especiales para datos de niños, niñas y adolescentes.
+2. Usamos los **datos sensibles** solo cuando una norma nos autoriza y solo para los fines que esa norma permite (p. ej., en salud, las leyes sanitarias).
+3. Protegemos los datos sensibles con **medidas de seguridad más estrictas** (cifrado, acceso restringido, registro de quién accede) y con **cuidados adicionales** para los datos de niños, niñas y adolescentes.
 > **Acciones para subir de nivel:**
 > - **→ 2 Básico:** Identificar los sistemas y planillas donde hay datos sensibles (salud, situación socioeconómica, datos biométricos, etc.) o de niños, niñas y adolescentes, y cerrar los accesos evidentemente excesivos (carpetas compartidas abiertas, cuentas genéricas).
 > - **→ 3 Definido:** Clasificar formalmente los datos sensibles en el Catálogo/RAT, verificar su base de licitud conforme a la finalidad y a la norma sectorial que los habilita, y definir reglas específicas para datos de NNA.
@@ -83,9 +85,9 @@ También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte
 > - **→ 5 Optimizado:** Minimizar de forma continua (anonimización/seudonimización por defecto en analítica e investigación) y anticipar riesgos emergentes, como la reidentificación por cruce de fuentes.
 
 ### A5. Consentimiento, información y transparencia
-1. Cuando la base es el consentimiento, lo obtenemos en forma **previa, libre, informada, específica e inequívoca** (art. 12), y de forma **expresa** para datos sensibles.
-2. Publicamos **políticas/avisos de privacidad** con la información mínima (responsable, finalidades, base de licitud, destinatarios, plazos, derechos y canal de ejercicio) (deber de información y transparencia, art. 14 ter).
-3. Existe un mecanismo **expedito, gratuito y permanentemente disponible** para retirar (revocar) el consentimiento (art. 12 inc. 5°).
+1. Cuando usamos datos porque la persona lo autorizó (**consentimiento**), pedimos esa autorización **antes** de usarlos y de manera **libre, informada, específica e inequívoca** (art. 12) — y en forma **expresa** si son datos sensibles.
+2. Publicamos **avisos o políticas de privacidad** con la información mínima: quién es el responsable, para qué usamos los datos, qué nos autoriza, a quién se entregan, cuánto se conservan, y qué derechos tienen las personas y dónde ejercerlos (deber de información y transparencia, art. 14 ter).
+3. Las personas pueden **retirar (revocar) su consentimiento en cualquier momento**, por un medio fácil, gratuito y siempre disponible (art. 12 inc. 5°).
 > **Acciones para subir de nivel:**
 > - **→ 2 Básico:** Revisar en qué formularios y trámites se recolectan datos con consentimiento y agregar avisos básicos de privacidad donde falten.
 > - **→ 3 Definido:** Publicar la política de tratamiento con la información mínima (modelo SGD) y estandarizar los mecanismos de consentimiento (previo, libre, informado, específico e inequívoco; expreso para datos sensibles) y su retiro expedito y gratuito.
@@ -93,9 +95,9 @@ También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte
 > - **→ 5 Optimizado:** Probar la comprensión real de los avisos (lenguaje claro) con usuarios y mejorar continuamente los flujos de consentimiento con esa retroalimentación.
 
 ### A6. Derechos de los titulares (ARCOP + bloqueo/portabilidad) **(crítica ×1.5)**
-1. Existe un canal y un procedimiento para ejercer los derechos de **acceso, rectificación, cancelación/supresión, oposición, portabilidad y bloqueo**.
-2. Atendemos las solicitudes **dentro del plazo legal** y dejamos registro **trazable** (ingreso, respuesta y evidencia).
-3. Gestionamos la **oposición a decisiones automatizadas** y perfilamiento, y podemos entregar los datos en formato **estructurado, genérico y de uso común** (portabilidad, art. 9).
+1. Existe un canal y un procedimiento para que las personas ejerzan sus derechos sobre sus datos: **acceso** (verlos), **rectificación** (corregirlos), **cancelación/supresión** (eliminarlos), **oposición, portabilidad y bloqueo**.
+2. Respondemos las solicitudes **dentro del plazo legal** y dejamos **registro** de cada una (cuándo ingresó, qué se respondió y su respaldo).
+3. Sabemos atender la **oposición a decisiones automatizadas** o perfilamiento, y podemos entregar los datos en un **formato electrónico estándar y reutilizable** (portabilidad, art. 9).
 > **Acciones para subir de nivel:**
 > - **→ 2 Básico:** Definir un punto de entrada provisorio (p. ej. la OIRS) y una persona responsable de responder solicitudes de derechos mientras se formaliza el procedimiento.
 > - **→ 3 Definido:** Formalizar el procedimiento ARCOP con plazos legales, formatos de respuesta y registro trazable, y habilitar un canal único (la Guía SGD recomienda la **OIRS** para el sector público), unificando —sin duplicar— los flujos ya regulados por normativa sectorial (p. ej., en salud, la entrega de copia de la ficha clínica bajo la Ley 20.584).
@@ -107,8 +109,8 @@ También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte
 > ⚠️ *Nota para validación jurídica (sectorial):* en algunos sectores ciertos derechos ya están fuertemente regulados por normativa especial (p. ej., en salud, el derecho de **acceso** —entrega de copia de la ficha clínica— y la **rectificación** bajo la **Ley 20.584**). Cuando así ocurra, coordinar con las OIRS para que el flujo de atención de la Ley 21.719 **no colisione ni duplique** los canales existentes, sino que los unifique.
 
 ### A7. Evaluación de Impacto en Protección de Datos (EIPD/DPIA) **(crítica ×1.5)**
-1. Tenemos **criterios** para identificar tratamientos de alto riesgo que requieren una Evaluación de Impacto (EIPD).
-2. Realizamos **EIPD documentadas en forma previa al inicio** de esos tratamientos, con análisis de riesgo y medidas de mitigación (art. 15 ter).
+1. Sabemos reconocer qué tratamientos de datos son de **alto riesgo** y requieren una **Evaluación de Impacto (EIPD)** antes de iniciarse.
+2. **Antes de iniciar** esos tratamientos de alto riesgo realizamos la EIPD, documentando los riesgos y las medidas para reducirlos (art. 15 ter).
 > **Acciones para subir de nivel:**
 > - **→ 2 Básico:** Acordar criterios simples para reconocer los tratamientos que la ley somete siempre a EIPD (evaluación sistemática y exhaustiva con decisiones automatizadas, tratamiento masivo o a gran escala, observación sistemática de zonas de acceso público, datos sensibles en las hipótesis de excepción del consentimiento — **art. 15 ter**) y listar cuáles de los tratamientos actuales los cumplen.
 > - **→ 3 Definido:** Adoptar una plantilla de EIPD y aplicarla en forma previa al inicio de los tratamientos de alto riesgo identificados, con análisis de riesgo y medidas de mitigación documentadas.
@@ -119,9 +121,9 @@ También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte
 
 ### A8. Seguridad y protección desde el diseño / por defecto **(crítica ×1.5)**
 1. Los accesos a los sistemas y bases con datos personales siguen el principio de **mínimo privilegio**: cada persona accede solo a lo que su función requiere.
-2. Los datos personales sensibles están **cifrados**, tanto almacenados como en tránsito.
+2. Los datos personales sensibles están **cifrados**, tanto cuando se almacenan como cuando se transmiten.
 3. Los sistemas que tratan datos personales mantienen **registros de acceso y actividad (logs)**.
-4. Incorporamos la **protección desde el diseño y por defecto** al crear sistemas, servicios o formularios (minimizando la recolección).
+4. Al crear o comprar sistemas, servicios o formularios, incorporamos la **protección desde el diseño y por defecto** (pidiendo solo los datos necesarios).
 > **Acciones para subir de nivel:**
 > - **→ 2 Básico:** Aplicar controles básicos en los sistemas con datos personales: cuentas individuales (no compartidas), mínimo privilegio, respaldos, y corte de accesos al desvincular personal.
 > - **→ 3 Definido:** Formalizar medidas de seguridad por nivel de riesgo —alineadas con la **Norma Técnica de Seguridad de la Información y Ciberseguridad** (Decreto 7/2023, Ley 21.180)— y un checklist de privacidad desde el diseño/por defecto para nuevos desarrollos y adquisiciones.
@@ -129,9 +131,9 @@ También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte
 > - **→ 5 Optimizado:** Gestionar la seguridad como mejora continua: pruebas periódicas (escaneos de vulnerabilidades, ethical hacking), lecciones de incidentes propios y de otras instituciones públicas, y ajuste de controles.
 
 ### A9. Gestión de brechas de seguridad **(crítica ×1.5)**
-1. Tenemos un **procedimiento documentado** para detectar, evaluar y gestionar brechas de datos personales.
-2. El procedimiento define la **notificación a la Agencia** por los medios más expeditos posibles y **sin dilaciones indebidas**, y la comunicación **en lenguaje claro** a los titulares cuando la brecha afecte **datos sensibles, de menores de 14 años o económico-financieros** (art. 14 sexies).
-3. Mantenemos un **registro de las vulneraciones** (naturaleza, efectos, categorías de datos, titulares afectados y medidas adoptadas, art. 14 sexies) y realizamos pruebas/simulacros de respuesta.
+1. Tenemos un **procedimiento escrito** para detectar, evaluar y manejar **brechas** que afecten datos personales (filtraciones, accesos indebidos, pérdida de información).
+2. El procedimiento define **avisar a la Agencia** lo antes posible ("por los medios más expeditos posibles y sin dilaciones indebidas") y **comunicar a las personas afectadas, en lenguaje claro**, cuando la brecha afecte datos sensibles, de menores de 14 años o económico-financieros (art. 14 sexies).
+3. Llevamos un **registro de las vulneraciones** ocurridas (qué pasó, sus efectos, qué datos y cuántas personas afectó, y qué medidas tomamos, art. 14 sexies) y hacemos **pruebas o simulacros** de respuesta.
 > **Acciones para subir de nivel:**
 > - **→ 2 Básico:** Definir a quién se avisa internamente ante un incidente con datos personales y llevar un registro simple de los incidentes que ocurran.
 > - **→ 3 Definido:** Redactar y aprobar el protocolo de brechas con el flujo de notificación a la Agencia y la comunicación en lenguaje claro a los titulares cuando corresponda; mantener un registro estructurado de vulneraciones.
@@ -141,8 +143,8 @@ También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte
 > *Nota:* la ley **no fija un plazo de 72 h** (ese plazo es del RGPD europeo); el estándar chileno es "por los medios más expeditos posibles y sin dilaciones indebidas", cuando exista un riesgo razonable para los derechos de los titulares.
 
 ### A10. Encargados (procesadores) y terceros
-1. Tenemos identificados los **encargados/terceros** que tratan datos por cuenta de la institución.
-2. Existen **contratos o acuerdos de tratamiento (DPA)** que regulan finalidad, duración, seguridad, confidencialidad, subencargados y la devolución/eliminación de datos al término del servicio (art. 15 bis).
+1. Tenemos identificados a los **proveedores y terceros que tratan datos por encargo** de la institución (soporte, nube, digitación, laboratorios, etc.).
+2. Esos encargos están regulados por **contratos o acuerdos de tratamiento (DPA)** que fijan finalidad, duración, seguridad, confidencialidad, subcontratación y la **devolución o eliminación** de los datos al terminar el servicio (art. 15 bis).
 > **Acciones para subir de nivel:**
 > - **→ 2 Básico:** Listar los proveedores y convenios que implican tratamiento de datos por cuenta de la institución (soporte, nube, digitación, laboratorios, aseguradoras, etc.).
 > - **→ 3 Definido:** Suscribir o actualizar los acuerdos de tratamiento (DPA) regulando finalidad, duración, seguridad, confidencialidad, subencargados y devolución/eliminación al término (art. 15 bis), e incluir cláusulas tipo en compras públicas y convenios (formatos SGD).
@@ -151,7 +153,7 @@ También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte
 
 ### A11. Transferencias internacionales de datos
 1. Tenemos identificadas las **transferencias internacionales** de datos (incluidos servicios en la nube fuera de Chile).
-2. Esas transferencias se amparan en un **mecanismo válido** (nivel adecuado de protección, cláusulas contractuales modelo u otras garantías apropiadas).
+2. Esas transferencias están respaldadas por alguno de los **mecanismos que la ley acepta** (país con nivel adecuado de protección, cláusulas contractuales modelo u otras garantías).
 > **Acciones para subir de nivel:**
 > - **→ 2 Básico:** Identificar qué servicios (especialmente en la nube) almacenan o procesan datos fuera de Chile, preguntando a TI y revisando los contratos vigentes.
 > - **→ 3 Definido:** Documentar los flujos transfronterizos en el Catálogo/RAT y ampararlos en un mecanismo válido (país con nivel adecuado de protección, **cláusulas contractuales modelo** u otras garantías adecuadas — **arts. 27-28**: las cláusulas modelo las aprueba la **Agencia**; transitoriamente la Guía SGD refiere las CCM del Ministerio de Economía).
@@ -159,8 +161,8 @@ También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte
 > - **→ 5 Optimizado:** Evaluar residencia de datos y minimización para reducir transferencias, anticipando decisiones de adecuación y cambios regulatorios.
 
 ### A12. Anonimización / seudonimización
-1. Antes de compartir o publicar datos, **clasificamos los atributos** (identificadores directos, identificadores indirectos o cuasi-identificadores, y atributos objetivos) y aplicamos técnicas adecuadas (supresión, **k-anonimato, l-diversidad**, seudonimización).
-2. Cuando seudonimizamos, mantenemos la **tabla de correspondencia cifrada** y con acceso restringido, y evaluamos el **riesgo de reidentificación** antes, durante y después.
+1. Antes de compartir o publicar datos, **identificamos qué campos permiten reconocer a una persona** (directa o indirectamente) y aplicamos técnicas de anonimización adecuadas (supresión, **k-anonimato, l-diversidad**, seudonimización).
+2. Cuando **seudonimizamos** (reemplazamos identidades por códigos), guardamos **cifrada y con acceso restringido** la tabla que permite volver a identificar, y evaluamos el **riesgo de reidentificación** antes, durante y después.
 > **Acciones para subir de nivel:**
 > - **→ 2 Básico:** Antes de compartir o publicar datos, eliminar los identificadores directos obvios (RUN, nombre, dirección, teléfono) y someter la salida a revisión de un par.
 > - **→ 3 Definido:** Adoptar el procedimiento de la Guía de Anonimización (clasificar identificadores directos, indirectos/cuasi-identificadores y atributos objetivos; aplicar supresión, k-anonimato, l-diversidad o seudonimización) y resguardar las tablas de correspondencia cifradas y con acceso restringido.
@@ -169,7 +171,7 @@ También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte
 
 ### A13. Cultura, capacitación y mejora continua
 1. Ejecutamos un **programa de capacitación/sensibilización** continua en protección de datos para el personal.
-2. Realizamos **monitoreo o auditorías internas** del cumplimiento y estamos **preparados para una fiscalización** de la Agencia (RAT, EIPD, registros ARCOP y de brechas, contratos disponibles).
+2. Realizamos **monitoreo o auditorías internas** del cumplimiento y estamos **preparados para una fiscalización** de la Agencia (catálogo/RAT, EIPD, registros de solicitudes ARCOP y de brechas, contratos disponibles).
 > **Acciones para subir de nivel:**
 > - **→ 2 Básico:** Realizar una primera sensibilización al personal que trata datos personales (charla o comunicado con lo esencial de la Ley 21.719 y el deber de reserva).
 > - **→ 3 Definido:** Establecer un plan anual de capacitación por perfil (jurídico, TI, operativo, administrativo) y auditorías internas periódicas de cumplimiento.
@@ -177,7 +179,7 @@ También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte
 > - **→ 5 Optimizado:** Evaluar la adopción de un **Modelo de Prevención de Infracciones (MPI)** certificable ante la Agencia (arts. 49-52; certificación por 3 años) y usar los resultados de auditorías y fiscalizaciones para mejorar el programa.
 
 ### A14. Cesiones y compartición con otros organismos
-1. Las **cesiones o comunicaciones** de datos personales a otros órganos públicos o terceros están **identificadas y amparadas en convenios** u otros instrumentos que fijan su finalidad y condiciones (art. 22).
+1. Cuando entregamos o compartimos datos personales con otros organismos públicos o terceros (**cesiones**), esas entregas están **identificadas y respaldadas por convenios** que fijan su finalidad y condiciones (art. 22).
 2. **Publicamos mensualmente** en el sitio web institucional los convenios de cesión o transferencia de datos personales suscritos (art. 22, inciso final).
 > **Acciones para subir de nivel:**
 > - **→ 2 Básico:** Listar con qué órganos públicos y terceros se comparten datos personales hoy (convenios, oficios, interoperabilidad, planillas) y detener las cesiones informales sin respaldo.
@@ -214,8 +216,8 @@ También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte
 
 ### B1. Instancias y estructura de gobernanza **(énfasis · crítica ×1.5)**
 1. Existen **instancias formales** de gobierno de datos (p. ej. un comité) con mandato escrito, periodicidad definida y **actas** de sus decisiones.
-2. Hay **patrocinio de la alta dirección** y un(a) responsable de datos (CDO o equivalente) con autoridad transversal.
-3. Están explícitos los **derechos de decisión** sobre los datos (qué se decide a nivel central y qué en cada área), y estas instancias se **articulan con ciberseguridad y con el/la DPO**.
+2. La **alta dirección respalda activamente** la gobernanza de datos y hay un(a) **responsable de datos (CDO o equivalente)** con autoridad sobre todas las áreas.
+3. Está claro **qué decisiones sobre los datos se toman a nivel central y cuáles en cada área** (derechos de decisión), y estas instancias se **coordinan con ciberseguridad y con el/la DPO**.
 > **Acciones para subir de nivel:**
 > - **→ 2 Básico:** Reunir periódicamente —aunque sea de manera informal— a las áreas que más usan datos para coordinar decisiones y priorizar los problemas de datos que duelen.
 > - **→ 3 Definido:** Constituir formalmente las instancias (**Comité Directivo, Comité Ejecutivo y mesas de trabajo**, según el MGDE) con mandato escrito, periodicidad, actas y derechos de decisión explícitos, articuladas con ciberseguridad y DPO; esta instancia puede asumir además las funciones del Comité Ejecutivo de la Ley 21.719 (Guía SGD).
@@ -242,9 +244,9 @@ También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte
 > - **→ 5 Optimizado:** Actualizar la estrategia con evidencia de valor (casos de uso, ahorros, mejoras de servicio) y anticipar capacidades futuras: interoperabilidad, analítica avanzada, IA.
 
 ### B4. Políticas, estándares y cumplimiento normativo
-1. Contamos con **políticas** de gestión/gobernanza de datos aprobadas y vigentes, y con **estándares** de nomenclatura, formato y clasificación.
+1. Contamos con **políticas** de gestión/gobernanza de datos aprobadas y vigentes, y con **estándares comunes** para nombrar, formatear y clasificar los datos.
 2. Verificamos el cumplimiento de la normativa aplicable (**Ley 21.719, Ley 21.180** de Transformación Digital, transparencia y datos abiertos).
-3. Publicamos **conjuntos de datos abiertos** actualizados, con las debidas salvaguardas de **anonimización** (p. ej. en datos.gob.cl).
+3. Publicamos **conjuntos de datos abiertos** actualizados y debidamente **anonimizados** (p. ej. en datos.gob.cl).
 > **Acciones para subir de nivel:**
 > - **→ 2 Básico:** Recopilar las prácticas y estándares que ya se usan (nomenclatura, formatos, clasificación) y unificar lo básico en un documento de referencia compartido.
 > - **→ 3 Definido:** Aprobar y difundir políticas de gestión/gobernanza de datos y estándares, controlando el cumplimiento normativo con **participación del área jurídica** (criterio MGDE) e incorporando la publicación de datos abiertos con salvaguardas de anonimización.
@@ -252,8 +254,8 @@ También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte
 > - **→ 5 Optimizado:** Revisar las políticas en ciclos regulares con retroalimentación de las áreas y cambios normativos, midiendo su adopción real.
 
 ### B5. Calidad de datos
-1. Tenemos definidas **dimensiones de calidad** (exactitud, completitud, consistencia, oportunidad, unicidad) y reglas de calidad para los datos críticos.
-2. **Medimos** la calidad con indicadores y contamos con un proceso de **remediación** con responsables por dominio.
+1. Tenemos definidos **criterios de calidad** para los datos críticos (exactitud, completitud, consistencia, oportunidad, unicidad) y reglas para verificarlos.
+2. **Medimos** la calidad con indicadores y tenemos un **proceso para corregir** los problemas detectados, con responsables por dominio.
 > **Acciones para subir de nivel:**
 > - **→ 2 Básico:** Elegir los datos más críticos y corregir los problemas de calidad evidentes que ya se conocen (duplicados, campos vacíos, códigos inválidos).
 > - **→ 3 Definido:** Definir dimensiones y reglas de calidad para los datos críticos y un proceso de remediación con responsables por dominio.
@@ -261,8 +263,8 @@ También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte
 > - **→ 5 Optimizado:** Prevenir en origen (validaciones en la captura, acuerdos de calidad con las fuentes) y mejorar continuamente las reglas según el uso real de los datos.
 
 ### B6. Metadatos, catálogo y linaje
-1. Contamos con un **catálogo/inventario** de datos y un **glosario** con metadatos de negocio y técnicos.
-2. Registramos el **linaje/trazabilidad** de las transformaciones de datos y clasificamos los datos por sensibilidad y grado de apertura.
+1. Contamos con un **catálogo o inventario** de los datos y un **glosario** que explica qué significa cada dato y sus características técnicas (metadatos).
+2. Registramos **de dónde viene cada dato y cómo se ha transformado** (linaje/trazabilidad), y clasificamos los datos por su **sensibilidad** y si pueden abrirse al público.
 > **Acciones para subir de nivel:**
 > - **→ 2 Básico:** Levantar un inventario simple de las bases y conjuntos de datos existentes: dónde están, quién los administra y para qué sirven.
 > - **→ 3 Definido:** Implementar un catálogo de datos con glosario de negocio y metadatos técnicos, clasificando por sensibilidad y grado de apertura, coordinado con el Catálogo/RAT.
@@ -273,9 +275,9 @@ También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte
 
 ### B7. Arquitectura, interoperabilidad e integración **(crítica ×1.5)**
 1. La **arquitectura de datos y los modelos de datos** institucionales están definidos y documentados.
-2. Los **datos maestros y de referencia** tienen una fuente autorizada única y gestionada (p. ej. maestros de personas, unidades organizativas, productos o prestaciones).
-3. Los **flujos e integraciones** entre sistemas están documentados y usan estándares de **interoperabilidad** (incluida la plataforma de interoperabilidad del Estado).
-4. Utilizamos y gobernamos **estándares semánticos y de terminología sectoriales** (p. ej., en salud: **HL7 FHIR, SNOMED CT, CIE-10/CIE-11**) para asegurar la consistencia del dato entre los distintos sistemas y unidades de la institución.
+2. Los **datos maestros** —los registros básicos que comparten los sistemas, como personas, unidades organizativas o prestaciones— tienen una **fuente oficial única y gestionada**.
+3. Las **conexiones e intercambios de datos entre sistemas** están documentados y usan estándares de **interoperabilidad** (incluida la plataforma de interoperabilidad del Estado).
+4. Usamos y mantenemos **estándares y terminologías comunes del sector** (p. ej., en salud: **HL7 FHIR, SNOMED CT, CIE-10/CIE-11**) para que el dato **signifique lo mismo** en los distintos sistemas y unidades de la institución.
 > **Acciones para subir de nivel:**
 > - **→ 2 Básico:** Documentar los sistemas y flujos de datos principales (un diagrama simple de qué se integra con qué) e identificar los datos maestros y las terminologías/estándares sectoriales que se usan de hecho (p. ej., en salud: CIE, SNOMED CT; o códigos locales).
 > - **→ 3 Definido:** Definir la arquitectura y los modelos de datos, gestionar datos maestros y de referencia, y documentar las integraciones bajo estándares de interoperabilidad (incluida la plataforma de interoperabilidad del Estado) y, para el dato sectorial, estándares semánticos y de terminología (p. ej., en salud: HL7 FHIR, SNOMED CT, CIE-10/CIE-11) con un responsable de su gobierno.
@@ -285,7 +287,7 @@ También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte
 > *Nota:* la interoperabilidad no es solo conectar sistemas (sintáctica) sino entender el significado del dato (semántica); el MGDE no profundiza en este punto, por lo que B7.4 lo agrega como exigencia, especialmente relevante en sectores con terminologías especializadas (p. ej., en salud, el dato clínico).
 
 ### B8. Seguridad y control de acceso (gobernanza)
-1. Clasificamos los datos por sensibilidad y **gobernamos los accesos** según necesidad de conocer (*need-to-know*), en coordinación con el Catálogo/RAT y la política de seguridad.
+1. Clasificamos los datos según su sensibilidad y **damos acceso solo a quien lo necesita para su función** (*need-to-know*), en línea con el Catálogo/RAT y la política de seguridad.
 2. Contamos con **respaldos y un plan de recuperación ante desastres**, probados periódicamente, para los datos y sistemas críticos (criterio MGDE: Recuperación ante desastres).
 > **Acciones para subir de nivel:**
 > - **→ 2 Básico:** Revisar quién tiene acceso a los repositorios de datos más sensibles, depurar los accesos en desuso y verificar que existan respaldos.
@@ -294,8 +296,8 @@ También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte
 > - **→ 5 Optimizado:** Automatizar el ciclo de accesos (alta, baja y recertificación) y mejorar continuamente con las lecciones de incidentes y ejercicios.
 
 ### B9. Ciclo de vida del dato y gestión documental
-1. Está definido el **ciclo de vida del dato** (creación → uso → archivo → **retención** → disposición/eliminación), con reglas de conservación **alineadas a los plazos legales de retención documental aplicables** (p. ej., en salud, la ficha clínica: mínimo 15 años).
-2. Gestionamos **documentos y expedientes electrónicos** con metadatos y trazabilidad (Decreto 10/2023), incluida la **disposición final controlada** (eliminación segura o preservación).
+1. Está definido el **ciclo de vida del dato** (crear → usar → archivar → conservar → eliminar), con reglas que **respetan los plazos legales de conservación** (p. ej., en salud, la ficha clínica: mínimo 15 años).
+2. Gestionamos los **documentos y expedientes electrónicos** con sus metadatos y registro de accesos y cambios (Decreto 10/2023), y **controlamos su destino final** (eliminación segura o envío a archivo).
 > **Acciones para subir de nivel:**
 > - **→ 2 Básico:** Identificar dónde se acumulan datos y documentos sin reglas de conservación (carpetas, correos, sistemas legados) y detener las eliminaciones o retenciones arbitrarias.
 > - **→ 3 Definido:** Definir el ciclo de vida del dato con reglas de conservación y disposición (**tabla de retención documental**, según la Guía Técnica de Gestión Documental del Estado), incorporando los plazos legales de retención documental aplicables (p. ej., en salud, la ficha clínica: mínimo 15 años, Decreto 41/2012), y gestionar documentos y expedientes electrónicos con metadatos y trazabilidad (Decreto 10/2023).
@@ -306,7 +308,7 @@ También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte
 
 ### B10. Cultura, alfabetización y gestión del cambio
 1. Existe un programa de **alfabetización de datos** (*data literacy*) y capacitación, y se promueve el uso de datos en la toma de decisiones.
-2. Gestionamos el **cambio** y la comunicación de la gobernanza de datos, y contamos con competencias y dotación suficientes en el equipo de datos.
+2. Acompañamos con comunicación y apoyo los cambios que trae la gobernanza de datos (**gestión del cambio**), y el equipo de datos cuenta con las **personas y competencias suficientes**.
 3. La institución **produce y utiliza regularmente productos de datos** (indicadores, tableros, informes) en su gestión y toma de decisiones.
 > **Acciones para subir de nivel:**
 > - **→ 2 Básico:** Partir con actividades simples de difusión (charlas, boletines, casos de uso internos) y detectar las brechas de competencias en los equipos.
@@ -316,7 +318,7 @@ También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte
 
 ### B11. Adopción y cumplimiento efectivo
 1. Las **políticas y estándares de datos se aplican efectivamente** en el trabajo diario de las áreas (no son solo documentos publicados).
-2. Las **decisiones de las instancias de gobernanza** de datos se **implementan** y se les hace seguimiento hasta su cierre.
+2. Las **decisiones del comité** u otras instancias de gobernanza de datos **se implementan** y se les hace seguimiento hasta que se completan.
 > **Acciones para subir de nivel:**
 > - **→ 2 Básico:** Difundir las políticas y estándares existentes en lenguaje simple (resúmenes de una página, inducciones) y levantar dónde no se están usando y por qué.
 > - **→ 3 Definido:** Definir mecanismos formales de adopción: un responsable de aplicar cada política en cada área, y seguimiento de los acuerdos del comité con plazos, responsables y estado en acta.
@@ -329,7 +331,7 @@ También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte
 1. Los **modelos analíticos, predictivos o de IA** en uso están **inventariados** y cada uno tiene un **responsable** designado.
 2. Cada modelo en uso cuenta con **documentación** de su propósito, los datos con que fue construido y sus limitaciones y riesgos.
 3. El **desempeño de los modelos en operación se monitorea** periódicamente (exactitud, degradación, sesgos), con un procedimiento para ajustarlos o retirarlos.
-4. El uso de **herramientas de IA de propósito general** (p. ej. IA generativa) por parte del personal está regulado por **lineamientos** que resguardan los datos personales y la información institucional.
+4. Existen **reglas o lineamientos** para que el personal use **herramientas de IA de propósito general** (p. ej. asistentes de IA generativa) **sin exponer datos personales** ni información institucional.
 > **Acciones para subir de nivel:**
 > - **→ 2 Básico:** Levantar un listado simple de los modelos, algoritmos y reglas automatizadas en uso (incluidos pilotos y planillas con lógica de decisión) y quién responde por cada uno.
 > - **→ 3 Definido:** Formalizar el inventario de modelos con responsable designado y una ficha por modelo (propósito, datos utilizados, limitaciones y riesgos), con revisión previa a producción: EIPD cuando trata datos personales (A7) y registro de decisiones automatizadas exigido por la matriz SGD; dictar lineamientos para el uso de herramientas de IA de propósito general (IA generativa) por el personal.

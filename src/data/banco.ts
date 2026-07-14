@@ -65,8 +65,8 @@ export const BANCO: Banco = {
             n5: 'Revisar las bases de licitud ante cada cambio normativo o de proceso, y evaluar la licitud antes de crear nuevos tratamientos (integrado al checklist de privacidad desde el diseño).',
           },
           preguntas: [
-            { id: 'A2.1', texto: 'Para cada tratamiento identificamos y documentamos su base de licitud (función legal del órgano, obligación legal, consentimiento u otra).' },
-            { id: 'A2.2', texto: 'Los tratamientos se limitan al ejercicio de nuestras funciones y competencias legales, sin usos incompatibles con la finalidad declarada.' },
+            { id: 'A2.1', texto: 'Para cada uso de datos personales, tenemos identificado y documentado qué nos autoriza legalmente (base de licitud: función legal del órgano, obligación legal, consentimiento u otra).' },
+            { id: 'A2.2', texto: 'Usamos los datos personales solo dentro de nuestras funciones y competencias legales, y solo para el fin declarado al recolectarlos (sin reutilizarlos para fines incompatibles).' },
             { id: 'A2.3', texto: 'El personal conoce y aplica el deber de reserva/confidencialidad sobre los datos personales.' },
           ],
         },
@@ -80,8 +80,8 @@ export const BANCO: Banco = {
           },
           preguntas: [
             { id: 'A3.1', texto: 'Realizamos un levantamiento de los datos personales que trata cada área (qué datos, si son sensibles, con qué finalidad, dónde se almacenan, cuánto se conservan y a quién se transfieren).' },
-            { id: 'A3.2', texto: 'Contamos con un catálogo o registro de actividades de tratamiento (RAT) que documenta, por actividad, finalidad, base de licitud, categorías de datos y de titulares (deber de información y transparencia, art. 14 ter).' },
-            { id: 'A3.3', texto: 'El RAT también registra destinatarios, plazos de conservación y fuente de los datos, y se mantiene actualizado.' },
+            { id: 'A3.2', texto: 'Contamos con un catálogo o registro de actividades de tratamiento (RAT) que documenta, para cada actividad, su finalidad, qué la autoriza (base de licitud) y qué tipos de datos y de personas involucra (deber de información y transparencia, art. 14 ter).' },
+            { id: 'A3.3', texto: 'El catálogo/RAT también registra a quién se entregan los datos (destinatarios), cuánto tiempo se conservan y de dónde provienen, y se mantiene actualizado.' },
           ],
         },
         {
@@ -94,8 +94,8 @@ export const BANCO: Banco = {
           },
           preguntas: [
             { id: 'A4.1', texto: 'Tenemos identificados y clasificados los datos sensibles que tratamos (p. ej. salud, situación socioeconómica, afiliación política o sindical, creencias, datos biométricos, vida sexual).' },
-            { id: 'A4.2', texto: 'El tratamiento de datos sensibles se ampara en una base de licitud válida y se limita a los fines de la norma que lo habilita (p. ej., en salud, las leyes sanitarias).' },
-            { id: 'A4.3', texto: 'Aplicamos medidas reforzadas a los datos sensibles (cifrado, acceso restringido, registro de accesos) y resguardos especiales para datos de niños, niñas y adolescentes.' },
+            { id: 'A4.2', texto: 'Usamos los datos sensibles solo cuando una norma nos autoriza y solo para los fines que esa norma permite (p. ej., en salud, las leyes sanitarias).' },
+            { id: 'A4.3', texto: 'Protegemos los datos sensibles con medidas de seguridad más estrictas (cifrado, acceso restringido, registro de quién accede) y con cuidados adicionales para los datos de niños, niñas y adolescentes.' },
           ],
         },
         {
@@ -107,9 +107,9 @@ export const BANCO: Banco = {
             n5: 'Probar la comprensión real de los avisos (lenguaje claro) con usuarios y mejorar continuamente los flujos de consentimiento con esa retroalimentación.',
           },
           preguntas: [
-            { id: 'A5.1', texto: 'Cuando la base es el consentimiento, lo obtenemos en forma previa, libre, informada, específica e inequívoca, y de forma expresa para datos sensibles.' },
-            { id: 'A5.2', texto: 'Publicamos políticas/avisos de privacidad con la información mínima (responsable, finalidades, base de licitud, destinatarios, plazos, derechos y canal de ejercicio).' },
-            { id: 'A5.3', texto: 'Existe un mecanismo expedito, gratuito y permanentemente disponible para retirar (revocar) el consentimiento.' },
+            { id: 'A5.1', texto: 'Cuando usamos datos porque la persona lo autorizó (consentimiento), pedimos esa autorización antes de usarlos y de manera libre, informada, específica e inequívoca — y en forma expresa si son datos sensibles.' },
+            { id: 'A5.2', texto: 'Publicamos avisos o políticas de privacidad con la información mínima: quién es el responsable, para qué usamos los datos, qué nos autoriza, a quién se entregan, cuánto se conservan, y qué derechos tienen las personas y dónde ejercerlos.' },
+            { id: 'A5.3', texto: 'Las personas pueden retirar (revocar) su consentimiento en cualquier momento, por un medio fácil, gratuito y siempre disponible.' },
           ],
         },
         {
@@ -121,9 +121,9 @@ export const BANCO: Banco = {
             n5: 'Automatizar donde aporte (verificación de identidad, portabilidad) y usar las solicitudes recibidas como señal para mejorar procesos y calidad de datos.',
           },
           preguntas: [
-            { id: 'A6.1', texto: 'Existe un canal y un procedimiento para ejercer los derechos de acceso, rectificación, cancelación/supresión, oposición, portabilidad y bloqueo.' },
-            { id: 'A6.2', texto: 'Atendemos las solicitudes dentro del plazo legal y dejamos registro trazable (ingreso, respuesta y evidencia).' },
-            { id: 'A6.3', texto: 'Gestionamos la oposición a decisiones automatizadas y perfilamiento, y podemos entregar los datos en formato estructurado, genérico y de uso común (portabilidad).' },
+            { id: 'A6.1', texto: 'Existe un canal y un procedimiento para que las personas ejerzan sus derechos sobre sus datos: acceso (verlos), rectificación (corregirlos), cancelación/supresión (eliminarlos), oposición, portabilidad y bloqueo.' },
+            { id: 'A6.2', texto: 'Respondemos las solicitudes dentro del plazo legal y dejamos registro de cada una (cuándo ingresó, qué se respondió y su respaldo).' },
+            { id: 'A6.3', texto: 'Sabemos atender la oposición de una persona a decisiones automatizadas o perfilamiento, y podemos entregarle sus datos en un formato electrónico estándar y reutilizable (portabilidad).' },
           ],
         },
         {
@@ -135,8 +135,8 @@ export const BANCO: Banco = {
             n5: 'Reevaluar las EIPD ante cambios relevantes del tratamiento y compartir aprendizajes entre áreas; consultar a la Agencia cuando el riesgo residual siga siendo alto.',
           },
           preguntas: [
-            { id: 'A7.1', texto: 'Tenemos criterios para identificar tratamientos de alto riesgo que requieren una Evaluación de Impacto (EIPD).' },
-            { id: 'A7.2', texto: 'Realizamos EIPD documentadas en forma previa al inicio de esos tratamientos, con análisis de riesgo y medidas de mitigación.' },
+            { id: 'A7.1', texto: 'Sabemos reconocer qué tratamientos de datos son de alto riesgo y requieren una Evaluación de Impacto (EIPD) antes de iniciarse.' },
+            { id: 'A7.2', texto: 'Antes de iniciar esos tratamientos de alto riesgo realizamos la EIPD, documentando los riesgos y las medidas para reducirlos.' },
           ],
         },
         {
@@ -149,9 +149,9 @@ export const BANCO: Banco = {
           },
           preguntas: [
             { id: 'A8.1', texto: 'Los accesos a los sistemas y bases con datos personales siguen el principio de mínimo privilegio: cada persona accede solo a lo que su función requiere.' },
-            { id: 'A8.2', texto: 'Los datos personales sensibles están cifrados, tanto almacenados como en tránsito.' },
+            { id: 'A8.2', texto: 'Los datos personales sensibles están cifrados, tanto cuando se almacenan como cuando se transmiten.' },
             { id: 'A8.3', texto: 'Los sistemas que tratan datos personales mantienen registros de acceso y actividad (logs).' },
-            { id: 'A8.4', texto: 'Incorporamos la protección desde el diseño y por defecto al crear sistemas, servicios o formularios (minimizando la recolección).' },
+            { id: 'A8.4', texto: 'Al crear o comprar sistemas, servicios o formularios, incorporamos la protección de datos desde el diseño y por defecto (pidiendo solo los datos necesarios).' },
           ],
         },
         {
@@ -163,9 +163,9 @@ export const BANCO: Banco = {
             n5: 'Analizar tendencias del registro de vulneraciones para prevenir recurrencias y mejorar el protocolo después de cada ensayo o brecha real.',
           },
           preguntas: [
-            { id: 'A9.1', texto: 'Tenemos un procedimiento documentado para detectar, evaluar y gestionar brechas de datos personales.' },
-            { id: 'A9.2', texto: 'El procedimiento define la notificación a la Agencia por los medios más expeditos posibles y sin dilaciones indebidas, y la comunicación en lenguaje claro a los titulares cuando la brecha afecte datos sensibles, de menores de 14 años o económico-financieros.' },
-            { id: 'A9.3', texto: 'Mantenemos un registro de las vulneraciones (naturaleza, efectos, categorías de datos, titulares afectados y medidas adoptadas) y realizamos pruebas/simulacros de respuesta.' },
+            { id: 'A9.1', texto: 'Tenemos un procedimiento escrito para detectar, evaluar y manejar brechas de seguridad que afecten datos personales (filtraciones, accesos indebidos, pérdida de información).' },
+            { id: 'A9.2', texto: 'El procedimiento define avisar a la Agencia lo antes posible (por los medios más expeditos posibles y sin dilaciones indebidas) y comunicar a las personas afectadas, en lenguaje claro, cuando la brecha afecte datos sensibles, de menores de 14 años o económico-financieros.' },
+            { id: 'A9.3', texto: 'Llevamos un registro de las vulneraciones ocurridas (qué pasó, sus efectos, qué datos y cuántas personas afectó, y qué medidas tomamos) y hacemos pruebas o simulacros de respuesta.' },
           ],
         },
         {
@@ -177,8 +177,8 @@ export const BANCO: Banco = {
             n5: 'Evaluar el riesgo de terceros en forma continua (criticidad, incidentes, dependencia) y ajustar cláusulas y controles según ese riesgo.',
           },
           preguntas: [
-            { id: 'A10.1', texto: 'Tenemos identificados los encargados/terceros que tratan datos por cuenta de la institución.' },
-            { id: 'A10.2', texto: 'Existen contratos o acuerdos de tratamiento (DPA) que regulan finalidad, duración, seguridad, confidencialidad, subencargados y la devolución/eliminación de datos al término del servicio.' },
+            { id: 'A10.1', texto: 'Tenemos identificados a los proveedores y terceros que tratan datos personales por encargo de la institución (soporte, nube, digitación, laboratorios, etc.).' },
+            { id: 'A10.2', texto: 'Esos encargos están regulados por contratos o acuerdos de tratamiento (DPA) que fijan finalidad, duración, seguridad, confidencialidad, subcontratación y la devolución o eliminación de los datos al terminar el servicio.' },
           ],
         },
         {
@@ -191,7 +191,7 @@ export const BANCO: Banco = {
           },
           preguntas: [
             { id: 'A11.1', texto: 'Tenemos identificadas las transferencias internacionales de datos (incluidos servicios en la nube fuera de Chile).' },
-            { id: 'A11.2', texto: 'Esas transferencias se amparan en un mecanismo válido (nivel adecuado de protección, cláusulas contractuales modelo u otras garantías apropiadas).' },
+            { id: 'A11.2', texto: 'Esas transferencias están respaldadas por alguno de los mecanismos que la ley acepta (país con nivel adecuado de protección, cláusulas contractuales modelo u otras garantías).' },
           ],
         },
         {
@@ -203,8 +203,8 @@ export const BANCO: Banco = {
             n5: 'Incorporar técnicas avanzadas donde aporten (privacidad diferencial, datos sintéticos) y reevaluar publicaciones históricas cuando aparezcan nuevas fuentes de cruce.',
           },
           preguntas: [
-            { id: 'A12.1', texto: 'Antes de compartir o publicar datos, clasificamos los atributos (identificadores directos, identificadores indirectos o cuasi-identificadores, y atributos objetivos) y aplicamos técnicas adecuadas (supresión, k-anonimato, l-diversidad, seudonimización).' },
-            { id: 'A12.2', texto: 'Cuando seudonimizamos, mantenemos la tabla de correspondencia cifrada y con acceso restringido, y evaluamos el riesgo de reidentificación antes, durante y después.' },
+            { id: 'A12.1', texto: 'Antes de compartir o publicar datos, identificamos qué campos permiten reconocer a una persona (directa o indirectamente) y aplicamos técnicas de anonimización adecuadas (supresión, k-anonimato, l-diversidad, seudonimización).' },
+            { id: 'A12.2', texto: 'Cuando seudonimizamos (reemplazamos identidades por códigos), guardamos cifrada y con acceso restringido la tabla que permite volver a identificar, y evaluamos el riesgo de reidentificación antes, durante y después.' },
           ],
         },
         {
@@ -217,7 +217,7 @@ export const BANCO: Banco = {
           },
           preguntas: [
             { id: 'A13.1', texto: 'Ejecutamos un programa de capacitación/sensibilización continua en protección de datos para el personal.' },
-            { id: 'A13.2', texto: 'Realizamos monitoreo o auditorías internas del cumplimiento y estamos preparados para una fiscalización de la Agencia (RAT, EIPD, registros ARCOP y de brechas, contratos disponibles).' },
+            { id: 'A13.2', texto: 'Realizamos monitoreo o auditorías internas del cumplimiento y estamos preparados para una fiscalización de la Agencia (catálogo/RAT, EIPD, registros de solicitudes ARCOP y de brechas, contratos disponibles).' },
           ],
         },
         {
@@ -229,7 +229,7 @@ export const BANCO: Banco = {
             n5: 'Minimizar lo compartido (solo los campos necesarios; consulta en línea por interoperabilidad en vez de copias) y revisar las cesiones ante cambios normativos o de proceso.',
           },
           preguntas: [
-            { id: 'A14.1', texto: 'Las cesiones o comunicaciones de datos personales a otros órganos públicos o terceros están identificadas y amparadas en convenios u otros instrumentos que fijan su finalidad y condiciones.' },
+            { id: 'A14.1', texto: 'Cuando entregamos o compartimos datos personales con otros organismos públicos o terceros (cesiones), esas entregas están identificadas y respaldadas por convenios que fijan su finalidad y condiciones.' },
             { id: 'A14.2', texto: 'Publicamos mensualmente en el sitio web institucional los convenios de cesión o transferencia de datos personales suscritos.' },
           ],
         },
@@ -251,8 +251,8 @@ export const BANCO: Banco = {
           },
           preguntas: [
             { id: 'B1.1', texto: 'Existen instancias formales de gobierno de datos (p. ej. un comité) con mandato escrito, periodicidad definida y actas de sus decisiones.' },
-            { id: 'B1.2', texto: 'Hay patrocinio de la alta dirección y un(a) responsable de datos (CDO o equivalente) con autoridad transversal.' },
-            { id: 'B1.3', texto: 'Están explícitos los derechos de decisión sobre los datos (qué se decide a nivel central y qué en cada área), y estas instancias se articulan con ciberseguridad y con el/la DPO.' },
+            { id: 'B1.2', texto: 'La alta dirección respalda activamente la gobernanza de datos y hay un(a) responsable de datos (CDO o equivalente) con autoridad sobre todas las áreas.' },
+            { id: 'B1.3', texto: 'Está claro qué decisiones sobre los datos se toman a nivel central y cuáles en cada área (derechos de decisión), y estas instancias se coordinan con ciberseguridad y con el/la DPO.' },
           ],
         },
         {
@@ -291,9 +291,9 @@ export const BANCO: Banco = {
             n5: 'Revisar las políticas en ciclos regulares con retroalimentación de las áreas y cambios normativos, midiendo su adopción real.',
           },
           preguntas: [
-            { id: 'B4.1', texto: 'Contamos con políticas de gestión/gobernanza de datos aprobadas y vigentes, y con estándares de nomenclatura, formato y clasificación.' },
+            { id: 'B4.1', texto: 'Contamos con políticas de gestión/gobernanza de datos aprobadas y vigentes, y con estándares comunes para nombrar, formatear y clasificar los datos.' },
             { id: 'B4.2', texto: 'Verificamos el cumplimiento de la normativa aplicable (Ley 21.719, Ley 21.180 de Transformación Digital, transparencia y datos abiertos).' },
-            { id: 'B4.3', texto: 'Publicamos conjuntos de datos abiertos actualizados, con las debidas salvaguardas de anonimización (p. ej. en datos.gob.cl).' },
+            { id: 'B4.3', texto: 'Publicamos conjuntos de datos abiertos actualizados y debidamente anonimizados (p. ej. en datos.gob.cl).' },
           ],
         },
         {
@@ -305,8 +305,8 @@ export const BANCO: Banco = {
             n5: 'Prevenir en origen (validaciones en la captura, acuerdos de calidad con las fuentes) y mejorar continuamente las reglas según el uso real de los datos.',
           },
           preguntas: [
-            { id: 'B5.1', texto: 'Tenemos definidas dimensiones de calidad (exactitud, completitud, consistencia, oportunidad, unicidad) y reglas de calidad para los datos críticos.' },
-            { id: 'B5.2', texto: 'Medimos la calidad con indicadores y contamos con un proceso de remediación con responsables por dominio.' },
+            { id: 'B5.1', texto: 'Tenemos definidos criterios de calidad para los datos críticos (exactitud, completitud, consistencia, oportunidad, unicidad) y reglas para verificarlos.' },
+            { id: 'B5.2', texto: 'Medimos la calidad con indicadores y tenemos un proceso para corregir los problemas detectados, con responsables por dominio.' },
           ],
         },
         {
@@ -318,8 +318,8 @@ export const BANCO: Banco = {
             n5: 'Mantener el catálogo como pieza viva integrada a los flujos (alta automática de metadatos, linaje automatizado) y como base para la reutilización y la analítica.',
           },
           preguntas: [
-            { id: 'B6.1', texto: 'Contamos con un catálogo/inventario de datos y un glosario con metadatos de negocio y técnicos.' },
-            { id: 'B6.2', texto: 'Registramos el linaje/trazabilidad de las transformaciones de datos y clasificamos los datos por sensibilidad y grado de apertura.' },
+            { id: 'B6.1', texto: 'Contamos con un catálogo o inventario de los datos y un glosario que explica qué significa cada dato y sus características técnicas (metadatos).' },
+            { id: 'B6.2', texto: 'Registramos de dónde viene cada dato y cómo se ha transformado (linaje/trazabilidad), y clasificamos los datos por su sensibilidad y si pueden abrirse al público.' },
           ],
         },
         {
@@ -332,9 +332,9 @@ export const BANCO: Banco = {
           },
           preguntas: [
             { id: 'B7.1', texto: 'La arquitectura de datos y los modelos de datos institucionales están definidos y documentados.' },
-            { id: 'B7.2', texto: 'Los datos maestros y de referencia tienen una fuente autorizada única y gestionada (p. ej. maestros de personas, unidades organizativas, productos o prestaciones).' },
-            { id: 'B7.3', texto: 'Los flujos e integraciones entre sistemas están documentados y usan estándares de interoperabilidad (incluida la plataforma de interoperabilidad del Estado).' },
-            { id: 'B7.4', texto: 'Utilizamos y gobernamos estándares semánticos y de terminología sectoriales (p. ej., en salud: HL7 FHIR, SNOMED CT, CIE-10/CIE-11) para asegurar la consistencia del dato entre los distintos sistemas y unidades de la institución.' },
+            { id: 'B7.2', texto: 'Los datos maestros —los registros básicos que comparten los sistemas, como personas, unidades organizativas o prestaciones— tienen una fuente oficial única y gestionada.' },
+            { id: 'B7.3', texto: 'Las conexiones e intercambios de datos entre sistemas están documentados y usan estándares de interoperabilidad (incluida la plataforma de interoperabilidad del Estado).' },
+            { id: 'B7.4', texto: 'Usamos y mantenemos estándares y terminologías comunes del sector (p. ej., en salud: HL7 FHIR, SNOMED CT, CIE-10/CIE-11) para que el dato signifique lo mismo en los distintos sistemas y unidades de la institución.' },
           ],
         },
         {
@@ -346,7 +346,7 @@ export const BANCO: Banco = {
             n5: 'Automatizar el ciclo de accesos (alta, baja y recertificación) y mejorar continuamente con las lecciones de incidentes y ejercicios.',
           },
           preguntas: [
-            { id: 'B8.1', texto: 'Clasificamos los datos por sensibilidad y gobernamos los accesos según necesidad de conocer (need-to-know), en coordinación con el Catálogo/RAT y la política de seguridad.' },
+            { id: 'B8.1', texto: 'Clasificamos los datos según su sensibilidad y damos acceso solo a quien lo necesita para su función (need-to-know), en línea con el Catálogo/RAT y la política de seguridad.' },
             { id: 'B8.2', texto: 'Contamos con respaldos y un plan de recuperación ante desastres, probados periódicamente, para los datos y sistemas críticos.' },
           ],
         },
@@ -359,8 +359,8 @@ export const BANCO: Banco = {
             n5: 'Automatizar la retención y disposición en los sistemas y revisar las reglas ante cambios normativos o nuevas series documentales.',
           },
           preguntas: [
-            { id: 'B9.1', texto: 'Está definido el ciclo de vida del dato (creación → uso → archivo → retención → disposición/eliminación), con reglas de conservación alineadas a los plazos legales de retención documental aplicables (p. ej., en salud, la ficha clínica: mínimo 15 años).' },
-            { id: 'B9.2', texto: 'Gestionamos documentos y expedientes electrónicos con metadatos y trazabilidad (Decreto 10/2023), incluida la disposición final controlada (eliminación segura o preservación).' },
+            { id: 'B9.1', texto: 'Está definido el ciclo de vida del dato (crear → usar → archivar → conservar → eliminar), con reglas que respetan los plazos legales de conservación (p. ej., en salud, la ficha clínica: mínimo 15 años).' },
+            { id: 'B9.2', texto: 'Gestionamos los documentos y expedientes electrónicos con sus metadatos y registro de accesos y cambios (Decreto 10/2023), y controlamos su destino final (eliminación segura o envío a archivo).' },
           ],
         },
         {
@@ -373,7 +373,7 @@ export const BANCO: Banco = {
           },
           preguntas: [
             { id: 'B10.1', texto: 'Existe un programa de alfabetización de datos (data literacy) y capacitación, y se promueve el uso de datos en la toma de decisiones.' },
-            { id: 'B10.2', texto: 'Gestionamos el cambio y la comunicación de la gobernanza de datos, y contamos con competencias y dotación suficientes en el equipo de datos.' },
+            { id: 'B10.2', texto: 'Acompañamos con comunicación y apoyo los cambios que trae la gobernanza de datos (gestión del cambio), y el equipo de datos cuenta con las personas y competencias suficientes.' },
             { id: 'B10.3', texto: 'La institución produce y utiliza regularmente productos de datos (indicadores, tableros, informes) en su gestión y toma de decisiones.' },
           ],
         },
@@ -387,7 +387,7 @@ export const BANCO: Banco = {
           },
           preguntas: [
             { id: 'B11.1', texto: 'Las políticas y estándares de datos se aplican efectivamente en el trabajo diario de las áreas (no son solo documentos publicados).' },
-            { id: 'B11.2', texto: 'Las decisiones de las instancias de gobernanza de datos se implementan y se les hace seguimiento hasta su cierre.' },
+            { id: 'B11.2', texto: 'Las decisiones del comité u otras instancias de gobernanza de datos se implementan y se les hace seguimiento hasta que se completan.' },
           ],
         },
         {
@@ -402,7 +402,7 @@ export const BANCO: Banco = {
             { id: 'B12.1', texto: 'Los modelos analíticos, predictivos o de IA en uso están inventariados y cada uno tiene un responsable designado.' },
             { id: 'B12.2', texto: 'Cada modelo en uso cuenta con documentación de su propósito, los datos con que fue construido y sus limitaciones y riesgos.' },
             { id: 'B12.3', texto: 'El desempeño de los modelos en operación se monitorea periódicamente (exactitud, degradación, sesgos), con un procedimiento para ajustarlos o retirarlos.' },
-            { id: 'B12.4', texto: 'El uso de herramientas de IA de propósito general (p. ej. IA generativa) por parte del personal está regulado por lineamientos que resguardan los datos personales y la información institucional.' },
+            { id: 'B12.4', texto: 'Existen reglas o lineamientos para que el personal use herramientas de IA de propósito general (p. ej. asistentes de IA generativa) sin exponer datos personales ni información institucional.' },
           ],
         },
       ],
