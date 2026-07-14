@@ -33,6 +33,12 @@
 - **Datos abiertos (B4.3):** política de datos abiertos del Estado (portal datos.gob.cl) y transparencia activa; publicar con salvaguardas de **anonimización** (cruza con A12). Verificar el instrumento normativo vigente antes de citarlo como deber concreto.
 - **IA generativa / uso de LLMs por el personal (B12.4):** sin norma específica; el riesgo se ancla en los deberes de **seguridad (art. 14 quinquies)**, **encargados (art. 15 bis** — pegar datos personales en un LLM externo equivale a un encargo sin contrato) y **transferencia internacional (arts. 27-28)**, más la Política Nacional de IA (eje "Gobernanza y ética").
 
+### Módulo C — Sector salud (OPCIONAL: solo si la institución activó "sector salud")
+Son preguntas sectoriales que **solo aparecen en los datos si la sesión marcó sector salud**. **Su ausencia en una institución no-salud es lo esperado — no es una brecha ni un pendiente.** Cuando aparecen, se leen como **deberes reforzados** propios del sector, no genéricos. Anclajes verificados (2026-07-14):
+- **C1 Datos de salud y régimen reforzado (crítica):** **art. 16 bis** — el tratamiento de datos de salud y del perfil biológico se limita a los fines de las leyes especiales en materia sanitaria, y se **prohíbe** usar datos o muestras recolectados en el ámbito laboral, educativo, deportivo, de seguros o de seguridad social salvo autorización legal expresa; consentimiento **expreso** para datos sensibles (art. 16). Es el régimen reforzado sobre A4/A8: una brecha en C1 es incumplimiento del régimen especial, de alta relevancia sancionatoria.
+- **C2 Ficha clínica (Ley 20.584):** acceso, copia y rectificación de la ficha ya regulados sectorialmente; **Reglamento sobre Fichas Clínicas (Decreto 41/2012)**, conservación mínima **15 años** desde la última atención. Coordinar con el canal ARCOP (A6) **sin duplicar**.
+- **C3 Interoperabilidad clínica y datos a gran escala:** estándares **HL7 FHIR / SNOMED CT / CIE** (consistencia semántica del dato clínico en la red asistencial); **EIPD previa** a los tratamientos masivos de datos de salud (art. 15 ter — en salud, exigible por regla general); **uso secundario** (investigación, estadística, salud pública) con anonimización/seudonimización (Guía de Anonimización; cruza con A12).
+
 ### Marcos internacionales de referencia
 - **Playbook de estrategia de datos (BID / Public Digital):** https://publicdigital.github.io/data-strategy-playbook/ — método de 3 pasos (equipo multidisciplinario → autoevaluación → hoja de ruta con nivel actual, meta, acciones, responsables, presupuesto, plazos) y recomendaciones **por nivel** para subir de madurez; es el modelo del que este instrumento toma las "escaleras de acciones".
 - **DAMA-DMBOK** (base conceptual del MGDE), niveles tipo **CMMI** (base de la escala 1–5 del instrumento).
@@ -78,6 +84,8 @@ Cadenas causales típicas (causa aguas arriba → síntoma aguas abajo):
 | **A1** (encargado 21.719) | A3 inventario, A5 política, A6 canal ARCOP, A9 protocolo, A13 | Sin conductor designado, los instrumentos de la ruta SGD no se producen |
 | **A3** (inventario/RAT) | A4, A7, A10, A11, A12, A14, B6 | No se puede clasificar, evaluar impacto ni controlar flujos o cesiones de lo que no se conoce |
 | **B10** (capacidades, cultura) | B5 calidad en origen, B11 adopción | El dato nace mal y las políticas no se usan si nadie sabe ni quiere |
+
+**Módulo C (salud), si está activo:** cada dimensión sectorial hereda las causas de su contraparte genérica — **C1** se apoya en A4 (sensibles) y A8 (seguridad); **C2** en B9 (retención) y A6 (derechos); **C3** en B7 (interoperabilidad), A7 (EIPD) y A12 (anonimización). Una brecha en C suele explicarse primero por su base genérica antes que por lo sectorial (p. ej., C3 bajo con B7 bajo = falta la interoperabilidad de base, no solo la clínica).
 
 Regla de lectura: un síntoma aguas abajo **con causas aguas arriba también bajas se explica primero
 organizacionalmente**; solo si las fundaciones están sanas se explora causa técnica o presupuestaria.
