@@ -22,12 +22,12 @@ node .claude/skills/analizar-resultados/extraer.mjs [--bd copia.sqlite] [export1
 ```
 
 - Lee `datos/levantamiento.sqlite` (o la copia indicada con `--bd`, útil para snapshots y comparaciones en el tiempo) más los JSON exportados que se pasen; deduplica por sesión y **puntúa con el mismo scoring de la app** — los números nunca discrepan de la interfaz.
-- Devuelve JSON: sesiones puntuadas (por dimensión/módulo/global, NS/NA, respuestas crudas), consolidado (promedio institucional, min/max entre áreas por dimensión) y plan de acción con horizontes y etiquetas quick win/estructural.
+- Devuelve JSON: sesiones puntuadas (por dimensión/módulo/global, con **`ns` (No sé) y `na` (No aplica) separados**, respuestas crudas), consolidado (promedio institucional, min/max entre áreas por dimensión) y plan de acción con horizontes y etiquetas quick win/estructural.
 - Si no hay datos, no inventes: indica cómo obtenerlos (BD del facilitador o JSON de las áreas) y detente. Si el JSON es grande, guárdalo en el scratchpad y consúltalo por partes.
 
 ## 2. Auditoría del insumo (siempre primero)
 
-Reporta la solidez de la evidencia antes de interpretarla: cobertura (áreas respondidas y ausentes — la ausencia es hallazgo), % respondido por sesión, tasas de NS/NA por dimensión (NS alto en dimensión legal = "no sabemos si cumplimos", hallazgo en sí), posible sesgo de autorreporte (todo 4–5 en institución que recién parte → marcar "a validar con evidencia"), y dispersión entre áreas (distinguir realidad heterogénea de criterios de respuesta distintos).
+Reporta la solidez de la evidencia antes de interpretarla: cobertura (áreas respondidas y ausentes — la ausencia es hallazgo), % respondido por sesión, y las tasas de **"No sé" (`ns`) y "No aplica" (`na`) por dimensión, que el extractor entrega separadas** y que se leen distinto: un **"No sé" alto en dimensión legal = "no sabemos si cumplimos", hallazgo en sí**; un **"No aplica" alto exige verificar que el deber realmente no corresponda** —un "no aplica" indebido en una dimensión crítica oculta un incumplimiento (p. ej., una entidad de salud que marca "no aplica" el régimen del dato de salud, C1)—. Añade el posible sesgo de autorreporte (todo 4–5 en institución que recién parte → marcar "a validar con evidencia") y la dispersión entre áreas (distinguir realidad heterogénea de criterios de respuesta distintos). *(Nota de compatibilidad: las sesiones anteriores a jul-2026 usaron una sola marca combinada guardada como `na`; en esos datos `na` puede encubrir "No sé", así que no leer un `na` heredado en dimensión crítica como "fuera de alcance" sin verificar.)*
 
 ## 3. Análisis
 

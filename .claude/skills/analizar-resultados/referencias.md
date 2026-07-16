@@ -62,7 +62,7 @@ Reglas de interpretación adicionales:
 
 - **Patrón tecnosolucionista** (referencia interpretativa: C. Rebolledo, "La promesa del tecnosolucionismo frente a problemas analógicos", Cooperativa, 25-jun-2026 — https://opinion.cooperativa.cl/opinion/salud/la-promesa-del-tecnosolucionismo-frente-a-problemas-analogicos/2026-06-25/081447.html): dimensiones técnicas (B7) altas con gobernanza (B1/B2/B11) baja = infraestructura sin gobierno; digitalizar no es gobernar. El patrón inverso (políticas altas, adopción B11 baja) = gobernanza documental.
 - **Dispersión entre áreas** en una misma dimensión (min/max del extractor): puede ser realidad heterogénea (gestionable con áreas ancla) o criterios de respuesta distintos (problema del instrumento/proceso) — distinguir y decirlo.
-- **NS/NA alto en dimensiones legales** = la institución *no sabe si cumple*: es hallazgo en sí, distinto de incumplir.
+- **"No sé" (`ns`) alto en dimensiones legales** = la institución *no sabe si cumple*: es hallazgo en sí, distinto de incumplir. **"No aplica" (`na`)** es diferente —declara el deber fuera de alcance—; en una dimensión crítica hay que **verificar que el "no aplica" sea legítimo** y no una forma de omitir (p. ej., una entidad de salud que marca "no aplica" el régimen del dato de salud). El extractor entrega ambas cifras separadas; las sesiones anteriores a jul-2026 guardaron una sola marca combinada como `na`, que en esos datos puede encubrir un "No sé".
 - **Fortalezas como palanca:** dimensiones en o sobre la meta son áreas ancla — la mejor práctica interna es más replicable y creíble que cualquier benchmark externo.
 
 ## 3. Mapa causal de dependencias entre dimensiones

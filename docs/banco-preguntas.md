@@ -24,7 +24,7 @@ Cada afirmación se responde eligiendo el nivel de madurez que mejor refleja la 
 | 4 | **Gestionado** — "Lo medimos y controlamos" | Se mide con indicadores, se controla el cumplimiento, decisiones con evidencia. | Avanzado |
 | 5 | **Optimizado** — "Mejoramos de forma continua" | Mejora continua, se anticipan problemas, cultura consolidada. | Avanzado+ |
 
-También existe **"No sé / No aplica"**, que no se promedia y se reporta aparte como pendiente por cerrar.
+También existen dos marcas que **no se promedian** y se reportan aparte como pendientes por cerrar, y que significan cosas distintas: **"No sé"** (no sabemos si lo hacemos o cumplimos — un punto ciego a resolver con el área; en una dimensión legal equivale a "no sabemos si cumplimos") y **"No aplica"** (el tratamiento o deber no corresponde a la institución — fuera de alcance).
 
 **Puntaje:** promedio por dimensión (1-5) → promedio ponderado por módulo. Las dimensiones marcadas **(crítica ×1.5)** pesan más por su mayor riesgo sancionatorio o criticidad. Se consideran **brecha** las dimensiones cuyo nivel (promedio redondeado) queda bajo 3 ("Definido").
 

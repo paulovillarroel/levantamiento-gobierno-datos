@@ -6,7 +6,7 @@ import { ESCALA } from '../data/banco.ts';
 export function promedioDim(dim: Dimension, r: Respuestas): number | null {
   const vals = dim.preguntas
     .map((p) => r[p.id])
-    .filter((v): v is Exclude<Valor, 'na'> => typeof v === 'number');
+    .filter((v): v is Extract<Valor, number> => typeof v === 'number');
   if (vals.length === 0) return null;
   return vals.reduce((a, b) => a + b, 0) / vals.length;
 }
@@ -71,7 +71,7 @@ export function colorDe(m: number | null): string {
   return ESCALA[Math.max(1, Math.min(5, Math.round(m))) - 1]!.color;
 }
 
-/** Cantidad de preguntas con alguna respuesta (incluye "No sé / N/A"). */
+/** Cantidad de preguntas con alguna respuesta (incluye "No sé" y "No aplica"). */
 export function contarRespondidas(banco: Banco, r: Respuestas): number {
   let n = 0;
   for (const mod of banco.modulos) {
@@ -167,14 +167,16 @@ export function esEstructural(item: ItemPlan): boolean {
   return item.esBrecha && item.dim.critica && item.promedio < 2;
 }
 
+export type TipoPendiente = 'Sin responder' | 'No sé' | 'No aplica';
+
 export interface Pendiente {
   modId: string;
   dim: Dimension;
   pregunta: { id: string; texto: string };
-  tipo: 'Sin responder' | 'No sé / N/A';
+  tipo: TipoPendiente;
 }
 
-/** Preguntas sin responder o marcadas como "No sé / N/A". */
+/** Preguntas sin responder o marcadas como "No sé" / "No aplica" (no se promedian). */
 export function pendientes(banco: Banco, r: Respuestas): Pendiente[] {
   const out: Pendiente[] = [];
   for (const mod of banco.modulos) {
@@ -182,11 +184,19 @@ export function pendientes(banco: Banco, r: Respuestas): Pendiente[] {
       for (const p of d.preguntas) {
         const v = r[p.id];
         if (v === undefined) out.push({ modId: mod.id, dim: d, pregunta: p, tipo: 'Sin responder' });
-        else if (v === 'na') out.push({ modId: mod.id, dim: d, pregunta: p, tipo: 'No sé / N/A' });
+        else if (v === 'ns') out.push({ modId: mod.id, dim: d, pregunta: p, tipo: 'No sé' });
+        else if (v === 'na') out.push({ modId: mod.id, dim: d, pregunta: p, tipo: 'No aplica' });
       }
     }
   }
   return out;
+}
+
+/** Cuenta de pendientes por tipo (para el resumen del reporte). */
+export function contarPendientes(banco: Banco, r: Respuestas): Record<TipoPendiente, number> {
+  const acc: Record<TipoPendiente, number> = { 'Sin responder': 0, 'No sé': 0, 'No aplica': 0 };
+  for (const p of pendientes(banco, r)) acc[p.tipo]++;
+  return acc;
 }
 
 /** Formatea un promedio para mostrar (una decimal, o "—"). */

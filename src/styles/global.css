@@ -103,7 +103,9 @@ input.txt,select.txt{width:100%;padding:10px 12px;border:1px solid var(--line);b
 .opt[data-v="4"][aria-checked="true"]{background:var(--n4)}
 .opt[data-v="5"][aria-checked="true"]{background:var(--n5)}
 .opt.na{min-width:auto;padding:0 12px;font-size:13px;font-weight:600}
-.opt.na[aria-checked="true"]{background:var(--muted);color:#fff}
+/* "No sé" (pendiente por cerrar) en azul marca; "No aplica" (fuera de alcance) en gris. */
+.opt[data-v="ns"][aria-checked="true"]{background:var(--brand);color:#fff}
+.opt[data-v="na"][aria-checked="true"]{background:var(--muted);color:#fff}
 .sel-label{margin-left:8px;font-size:13px;font-weight:600;color:var(--muted)}
 
 /* Resultados */

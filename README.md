@@ -8,13 +8,52 @@
   🌐 <b>App en vivo:</b> <a href="https://paulovillarroel.github.io/levantamiento-gobierno-datos/">https://paulovillarroel.github.io/levantamiento-gobierno-datos/</a>
 </p>
 
-Herramienta web de **autodiagnóstico de madurez** para estimar qué tan preparada está una institución pública frente a la **nueva Ley de Protección de Datos Personales (Ley 21.719, vigente 1-dic-2026)** y frente al **estado del arte en gobernanza de datos** (alineado al **MGDE — Marco de Gestión de Datos del Estado**).
+<p align="center">
+  <a href="https://github.com/paulovillarroel/levantamiento-gobierno-datos/stargazers"><img src="https://img.shields.io/github/stars/paulovillarroel/levantamiento-gobierno-datos?style=social" alt="Estrellas en GitHub"></a>
+  &nbsp;
+  <a href="LICENSE"><img src="https://img.shields.io/badge/licencia-MIT-blue.svg" alt="Licencia MIT"></a>
+</p>
 
-Es un **formulario tipo Likert** simple, en lenguaje claro, con **escala de madurez 1–5**. Entrega puntajes por dimensión, un panel con gráficos radar y un **plan de acción por dimensión**: cada dimensión trae una escalera de acciones por nivel (→2/→3/→4/→5, estilo playbook BID) y el reporte muestra la acción concreta para subir al siguiente nivel — para todas las dimensiones, no solo las brechas.
+## ¿Tu institución está realmente preparada para la Ley 21.719?
 
-El levantamiento se organiza **por sesiones**: cada reunión con un área/departamento de la institución es una sesión independiente (con sus participantes y avance propios), y la vista **Consolidado** combina todas las sesiones —locales o importadas como JSON— en una matriz dimensión × área con promedios institucionales, brechas transversales y cobertura del levantamiento (qué áreas faltan). Ver [`docs/decisiones/003-levantamiento-por-sesiones-y-consolidado.md`](docs/decisiones/003-levantamiento-por-sesiones-y-consolidado.md).
+Miles de instituciones públicas de Chile deben implementar **nuevas obligaciones de protección de datos personales antes del 1 de diciembre de 2026** (Ley 21.719), fecha en que empieza a fiscalizar la nueva Agencia. La mayoría todavía no sabe **qué tan preparada está** —ni por dónde empezar.
+
+Esta herramienta lo **mide de forma estructurada y repetible**, con un diagnóstico basado en el **MGDE (Marco de Gestión de Datos del Estado)** y en la propia **Ley 21.719**. En una reunión de **cerca de una hora por área** obtienes:
+
+- ✅ **Nivel de madurez** — puntaje 1–5 por dimensión, con equivalencia a los 4 niveles del MGDE
+- ✅ **Radar** visual por dimensión y módulo
+- ✅ **Plan de acción** priorizado — la acción concreta para subir de nivel, no solo el diagnóstico
+- ✅ **Brechas** frente a los deberes legales críticos y el plazo de diciembre de 2026
+- ✅ **Consolidado institucional** que combina todas las áreas en una sola matriz
+
+Gratis, de **código abierto**, y **sin enviar un solo dato a internet**.
 
 > 🔒 **Privacidad.** Funciona por completo en el navegador. **Ninguna respuesta se envía a internet ni a ningún servidor.** El avance se guarda solo en el equipo (localStorage) y el usuario decide si lo exporta como archivo JSON/CSV. El consolidado también se calcula localmente.
+
+---
+
+## 🚀 Inicio rápido
+
+**Lo más rápido, sin instalar nada:** abre la 👉 **[app en vivo](https://paulovillarroel.github.io/levantamiento-gobierno-datos/)** y responde. Todo queda en tu navegador; nada se envía a internet.
+
+**Para usarla con base de datos y consolidado por áreas** (formulario + servidor SQLite), basta **Docker** y dos comandos:
+
+```bash
+git clone https://github.com/paulovillarroel/levantamiento-gobierno-datos.git
+cd levantamiento-gobierno-datos && docker compose up --build
+```
+
+Abre **http://localhost:8080** — la app detecta sola el servidor de sesiones (**"● BD conectada"**) y el consolidado se arma solo. ¿Sin Docker? Ver [Uso](#uso) (Node + npm). El detalle y las opciones están en [Ejecutar con Docker](#ejecutar-con-docker).
+
+> ⭐ **¿Te resulta útil?** Deja una **estrella** en [GitHub](https://github.com/paulovillarroel/levantamiento-gobierno-datos) — ayuda a que más instituciones públicas la encuentren.
+
+---
+
+## ¿Qué es y cómo funciona?
+
+Es una **herramienta web de autodiagnóstico** —mide la *percepción* de madurez del equipo, no reemplaza una auditoría—: un **formulario tipo Likert** simple, en lenguaje claro, con **escala de madurez 1–5**. Entrega puntajes por dimensión, un panel con gráficos radar y un **plan de acción por dimensión**: cada dimensión trae una escalera de acciones por nivel (→2/→3/→4/→5, estilo playbook BID) y el reporte muestra la acción concreta para subir al siguiente nivel — para todas las dimensiones, no solo las brechas.
+
+El levantamiento se organiza **por sesiones**: cada reunión con un área/departamento de la institución es una sesión independiente (con sus participantes y avance propios), y la vista **Consolidado** combina todas las sesiones —locales o importadas como JSON— en una matriz dimensión × área con promedios institucionales, brechas transversales y cobertura del levantamiento (qué áreas faltan). Ver [`docs/decisiones/003-levantamiento-por-sesiones-y-consolidado.md`](docs/decisiones/003-levantamiento-por-sesiones-y-consolidado.md).
 
 ---
 
@@ -23,7 +62,7 @@ El levantamiento se organiza **por sesiones**: cada reunión con un área/depart
 - **Módulo A — Ley 21.719** (14 dimensiones): gobernanza/DPO, base de licitud, RAT, datos sensibles, consentimiento, derechos ARCOP, EIPD, seguridad, brechas, encargados, transferencias, anonimización, cultura y cesiones entre organismos.
 - **Módulo B — Gobernanza de datos / MGDE** (12 dimensiones): instancias de gobernanza, roles, estrategia/activos estratégicos, políticas/datos abiertos, calidad, metadatos, arquitectura/interoperabilidad semántica, seguridad, ciclo de vida/gestión documental, cultura/uso de datos, adopción efectiva y gobierno de modelos analíticos e IA (incl. IA generativa).
 - **Módulo C — Sector salud** (opcional, 3 dimensiones): régimen reforzado del dato de salud, ficha clínica e interoperabilidad clínica. Se activa solo si la institución marca que pertenece al sector salud.
-- **69 preguntas** base (+ 8 opcionales del Módulo C salud = **77** si se activa). 45–60 min en reunión de levantamiento por área; 15–20 min si se responde individualmente. Escala 1–5 con equivalencia a los 4 niveles del MGDE + opción "No sé / N/A".
+- **69 preguntas** base (+ 8 opcionales del Módulo C salud = **77** si se activa). 45–60 min en reunión de levantamiento por área; 15–20 min si se responde individualmente. Escala 1–5 con equivalencia a los 4 niveles del MGDE + dos marcas que no se promedian: **"No sé"** (punto ciego a cerrar) y **"No aplica"** (fuera de alcance).
 
 El banco de preguntas está documentado en [`docs/banco-preguntas.md`](docs/banco-preguntas.md) y es el espejo legible del código en `src/data/banco.ts`.
 
@@ -31,7 +70,7 @@ El banco de preguntas está documentado en [`docs/banco-preguntas.md`](docs/banc
 
 ## Grupos de preguntas del formulario
 
-Las **69 preguntas** base se organizan en **26 dimensiones** (grupos temáticos), en dos módulos; un **Módulo C opcional** de 8 preguntas se suma para instituciones de salud (**77** en total si se activa). Cada afirmación se responde en la **escala de madurez 1–5** (o "No sé / N/A"). Las dimensiones marcadas **crítica** pesan ×1.5 en el puntaje del módulo (deberes legales basales o criticidad de gobernanza) y son las que deberían alcanzar al menos el nivel 3 «Definido» antes del 1-dic-2026. El detalle de cada pregunta —con sus notas jurídicas (⚠️) y las acciones por nivel— está en [`docs/banco-preguntas.md`](docs/banco-preguntas.md); la versión imprimible de solo preguntas, en [`docs/cuestionario.md`](docs/cuestionario.md).
+Las **69 preguntas** base se organizan en **26 dimensiones** (grupos temáticos), en dos módulos; un **Módulo C opcional** de 8 preguntas se suma para instituciones de salud (**77** en total si se activa). Cada afirmación se responde en la **escala de madurez 1–5** (o las marcas **"No sé"** / **"No aplica"**). Las dimensiones marcadas **crítica** pesan ×1.5 en el puntaje del módulo (deberes legales basales o criticidad de gobernanza) y son las que deberían alcanzar al menos el nivel 3 «Definido» antes del 1-dic-2026. El detalle de cada pregunta —con sus notas jurídicas (⚠️) y las acciones por nivel— está en [`docs/banco-preguntas.md`](docs/banco-preguntas.md); la versión imprimible de solo preguntas, en [`docs/cuestionario.md`](docs/cuestionario.md).
 
 ### Módulo A — Ley 21.719 · 14 dimensiones · 37 preguntas (7 críticas)
 
@@ -319,3 +358,10 @@ El instrumento se construyó y verificó **exclusivamente sobre fuentes normativ
 - Como **ejemplo sectorial** (salud): Ley 20.584 y [Decreto 41/2012 — Reglamento sobre Fichas Clínicas](https://www.bcn.cl/leychile/navegar?idNorma=1046753).
 
 El detalle de cómo cada fuente ancla cada dimensión, y las dos notas de verificación de contenido, están en [`docs/banco-preguntas.md`](docs/banco-preguntas.md).
+
+---
+
+<p align="center">
+  Si esta herramienta te sirve para impulsar la gobernanza de datos en tu institución,<br>
+  deja una ⭐ en <a href="https://github.com/paulovillarroel/levantamiento-gobierno-datos">GitHub</a> y compártela. Las contribuciones que mejoran la precisión normativa son muy bienvenidas.
+</p>

@@ -1,7 +1,13 @@
 // Tipos del dominio de la autoevaluación.
 
-/** Valor de una respuesta: nivel de madurez 1..5, o "na" (No sé / No aplica). */
-export type Valor = 1 | 2 | 3 | 4 | 5 | 'na';
+/**
+ * Valor de una respuesta: nivel de madurez 1..5, o dos marcas que no se promedian:
+ * - `'ns'` = **No sé** (no sabemos si lo hacemos/cumplimos) → punto ciego, hallazgo a cerrar.
+ * - `'na'` = **No aplica** (el tratamiento/deber no corresponde a esta institución) → fuera de alcance.
+ * Nota de compatibilidad: hasta jul-2026 existía una sola marca combinada `'na'` ("No sé / No aplica");
+ * las respuestas antiguas guardadas con `'na'` se leen ahora como "No aplica".
+ */
+export type Valor = 1 | 2 | 3 | 4 | 5 | 'ns' | 'na';
 
 export interface Pregunta {
   id: string;

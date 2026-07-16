@@ -128,7 +128,7 @@ export function exportarCSV(banco: Banco, respuestas: Respuestas, meta: Meta): v
       const paso = proximoPaso(d, md);
       for (const p of d.preguntas) {
         const v = respuestas[p.id];
-        const rv = v === undefined ? '' : v === 'na' ? 'NA' : v;
+        const rv = v === undefined ? '' : v === 'ns' ? 'NS' : v === 'na' ? 'NA' : v;
         filas.push([
           mod.id, d.id, d.nombre, p.id, p.texto, rv,
           md === null ? '' : md.toFixed(2),
