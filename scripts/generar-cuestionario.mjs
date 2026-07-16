@@ -35,7 +35,7 @@ for (const e of ESCALA) {
   L.push(`| ${e.v} | **${e.nombre}** — "${e.frase}" | ${e.desc} |`);
 }
 L.push('');
-L.push('Si no sabe o no aplica, marque **NS** (No sé / No aplica): esa pregunta no se promedia y queda como pendiente por cerrar.');
+L.push('Dos marcas **no se promedian** y quedan como pendientes por cerrar, y significan cosas distintas: **NS** = *No sé* (no sabemos si lo hacemos o cumplimos — punto ciego a resolver con el área) y **NA** = *No aplica* (el tratamiento o deber no corresponde a la institución).');
 L.push('');
 
 for (const mod of banco.modulos) {
@@ -48,10 +48,10 @@ for (const mod of banco.modulos) {
   for (const dim of mod.dimensiones) {
     L.push(`### ${dim.id}. ${dim.nombre}${dim.critica ? ' **(crítica ×1.5)**' : ''}`);
     L.push('');
-    L.push('| ID | Pregunta | 1 | 2 | 3 | 4 | 5 | NS |');
-    L.push('|---|---|:-:|:-:|:-:|:-:|:-:|:-:|');
+    L.push('| ID | Pregunta | 1 | 2 | 3 | 4 | 5 | NS | NA |');
+    L.push('|---|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|');
     for (const p of dim.preguntas) {
-      L.push(`| ${p.id} | ${p.texto} | | | | | | |`);
+      L.push(`| ${p.id} | ${p.texto} | | | | | | | |`);
     }
     L.push('');
   }

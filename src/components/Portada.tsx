@@ -81,7 +81,7 @@ export default function Portada({
           </p>
           <Leyenda />
           <p className="muted small">
-            Si no sabe o no aplica, elija <b>"No sé / N/A"</b>: esa pregunta no se promedia y se lista aparte como pendiente por cerrar.
+            Hay dos marcas que <b>no se promedian</b> y se listan aparte como pendientes: <b>"No sé"</b> (no sabemos si lo hacemos o cumplimos — conviene cerrarla con el área) y <b>"No aplica"</b> (el tratamiento o deber no corresponde a la institución). Son cosas distintas: "No sé" es un punto ciego a resolver; "No aplica" es algo fuera de su alcance.
             El cuestionario avanza <b>por bloques temáticos</b> (una dimensión a la vez) y <b>cada respuesta se guarda automáticamente</b>:
             puede pausar y retomar en otro momento, y al volver continúa en el primer bloque pendiente.
           </p>

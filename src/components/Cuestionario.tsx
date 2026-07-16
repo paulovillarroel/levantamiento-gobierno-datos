@@ -118,7 +118,10 @@ export default function Cuestionario({ banco, respuestas, etiqueta, guardadoEn, 
           {actual.dim.preguntas.map((p) => {
             const cur = respuestas[p.id];
             const selLabel =
-              cur === undefined ? '' : cur === 'na' ? '→ No sé / N/A' : `→ ${ESCALA[cur - 1]!.nombre}`;
+              cur === undefined ? ''
+              : cur === 'ns' ? '→ No sé'
+              : cur === 'na' ? '→ No aplica'
+              : `→ ${ESCALA[cur - 1]!.nombre}`;
             const selColor = typeof cur === 'number' ? ESCALA[cur - 1]!.color : 'var(--muted)';
             return (
               <div className="q" key={p.id}>
@@ -142,12 +145,23 @@ export default function Cuestionario({ banco, respuestas, etiqueta, guardadoEn, 
                     type="button"
                     className="opt na"
                     role="radio"
+                    aria-checked={cur === 'ns'}
+                    data-v="ns"
+                    title="No sé — no sabemos si lo hacemos o cumplimos (queda como pendiente por cerrar)"
+                    onClick={() => onResponder(p.id, 'ns')}
+                  >
+                    No sé
+                  </button>
+                  <button
+                    type="button"
+                    className="opt na"
+                    role="radio"
                     aria-checked={cur === 'na'}
                     data-v="na"
-                    title="No sé / No aplica"
+                    title="No aplica — este tratamiento o deber no corresponde a la institución"
                     onClick={() => onResponder(p.id, 'na')}
                   >
-                    No sé / N/A
+                    No aplica
                   </button>
                   <span className="sel-label" style={{ color: selColor }}>{selLabel}</span>
                 </div>

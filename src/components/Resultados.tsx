@@ -11,6 +11,7 @@ import {
   contarRespondidas,
   planDeAccion,
   pendientes,
+  contarPendientes,
   fmt,
 } from '../lib/scoring';
 import Radar from './Radar';
@@ -75,6 +76,7 @@ export default function Resultados({ banco, respuestas, meta, onEditar, onPrint,
   const prioritarias = plan.filter((x) => x.esBrecha);
   const enNivel = plan.filter((x) => !x.esBrecha);
   const pend = pendientes(banco, respuestas);
+  const pendCount = contarPendientes(banco, respuestas);
 
   const metaline: string[] = [];
   if (meta.institucion) metaline.push(meta.institucion);
@@ -302,10 +304,14 @@ export default function Resultados({ banco, respuestas, meta, onEditar, onPrint,
         <div className="card">
           <h2>Preguntas pendientes por cerrar ({pend.length})</h2>
           {pend.length === 0 ? (
-            <p className="muted">No hay preguntas sin responder ni marcadas como "No sé / N/A".</p>
+            <p className="muted">No hay preguntas sin responder ni marcadas como "No sé" o "No aplica".</p>
           ) : (
             <>
-              <p className="muted small">Estas preguntas no se promediaron. Conviene resolverlas con las áreas correspondientes.</p>
+              <p className="muted small">
+                Estas preguntas no se promediaron: <b>{pendCount['Sin responder']}</b> sin responder ·{' '}
+                <b>{pendCount['No sé']}</b> "No sé" · <b>{pendCount['No aplica']}</b> "No aplica".
+                Un <b>"No sé"</b> es un punto ciego a resolver con el área (en una dimensión legal, significa que <i>no sabemos si cumplimos</i>); un <b>"No aplica"</b> queda fuera de alcance —conviene verificar que efectivamente no corresponda.
+              </p>
               <div style={{ overflowX: 'auto' }}>
                 <table className="table">
                   <thead>

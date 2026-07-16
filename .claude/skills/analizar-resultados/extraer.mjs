@@ -94,6 +94,7 @@ function puntuarSesion(s, i) {
   for (const mod of banco.modulos) {
     for (const d of mod.dimensiones) {
       const m = promedioDim(d, r);
+      const ns = d.preguntas.filter((p) => r[p.id] === 'ns').length;
       const na = d.preguntas.filter((p) => r[p.id] === 'na').length;
       const sinResponder = d.preguntas.filter((p) => r[p.id] === undefined).length;
       porDimension[d.id] = {
@@ -102,6 +103,7 @@ function puntuarSesion(s, i) {
         promedio: m,
         nivel: nivelDe(m).nombre,
         mgde: mgdeDe(m),
+        ns,
         na,
         sinResponder,
       };
@@ -116,6 +118,7 @@ function puntuarSesion(s, i) {
     actualizada: s.actualizada,
     respondidas: contarRespondidas(banco, r),
     totalPreguntas: contarPreguntasBanco(banco),
+    ns: Object.values(r).filter((v) => v === 'ns').length,
     na: Object.values(r).filter((v) => v === 'na').length,
     global: g,
     nivelGlobal: nivelDe(g).nombre,
